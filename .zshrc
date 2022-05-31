@@ -87,6 +87,8 @@ plugins=(
   tmux
   zsh-autosuggestions
   zsh-syntax-highlighting
+  copypath
+  copyfile
 	)
 
 source $ZSH/oh-my-zsh.sh
@@ -120,10 +122,9 @@ source $ZSH/oh-my-zsh.sh
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-alias bastion2="ssh-yubikey.sh -t fbartik@bastion2.osc.edu 'tmux -CC new -A -s bastion2'"
-alias owens="ssh-yubikey.sh -t fbartik@owens.osc.edu 'tmux -CC new -A -s owens'"
-alias pitzer="ssh-yubikey.sh -t fbartik@pitzer.osc.edu 'tmux -CC new -A -s pitzer'"
-alias sshn="ssh -i .ssh/OverWNAkey -p 30500 franta@franta.duckdns.org 'tmux -CC new -A -s archnode'"
+if [ -f $HOME/.workrc ]; then
+	. $HOME/.workrc
+fi
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
