@@ -157,9 +157,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-alias mosharch="mosh --ssh='/usr/bin/ssh -i .ssh/OverWNAkey -p 30500' franta@franta.duckdns.org"
-alias moshvps="mosh --ssh='/usr/bin/ssh -p 30600' fbartik@89.221.222.143"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias dotconf='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
