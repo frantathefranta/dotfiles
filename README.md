@@ -9,3 +9,7 @@
   dotconf checkout
   dotconf config --local status.showUntrackedFiles no
   ```
+
+# Need to do
+* Add ssh key config
+* Add handling of previous .rc files
