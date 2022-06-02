@@ -1,5 +1,6 @@
 # Prerequisites
 * git
+* oh-my-zsh
 * commands to be ran:
 
   ```
