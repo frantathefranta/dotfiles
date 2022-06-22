@@ -126,37 +126,6 @@ if [ -f $HOME/.workrc ]; then
 	. $HOME/.workrc
 fi
 
-# >>> mamba initialize >>>
-# !! Contents within this block are managed by 'mamba init' !!
-export MAMBA_EXE="/Users/fbartik/.micromamba/bin/micromamba";
-export MAMBA_ROOT_PREFIX="/Users/fbartik/micromamba";
-__mamba_setup="$('/Users/fbartik/.micromamba/bin/micromamba' shell hook --shell zsh --prefix '/Users/fbartik/micromamba' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
-else
-    if [ -f "/Users/fbartik/micromamba/etc/profile.d/micromamba.sh" ]; then
-        . "/Users/fbartik/micromamba/etc/profile.d/micromamba.sh"
-    else
-        export  PATH="/Users/fbartik/micromamba/bin:$PATH"  # extra space after export prevents interference from conda init
-    fi
-fi
-unset __mamba_setup
-# <<< mamba initialize <<<
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/fbartik/micromamba/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/fbartik/micromamba/etc/profile.d/conda.sh" ]; then
-        . "/Users/fbartik/micromamba/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/fbartik/micromamba/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
