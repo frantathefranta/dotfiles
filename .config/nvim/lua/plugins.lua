@@ -1,5 +1,9 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
+local fn = vim.fn
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+end
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -10,7 +14,10 @@ vim.cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
-return require('packer').startup(function()
+-- apply colorscheme
+vim.cmd[[colorscheme neon]]
+
+return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   -- mkdir
@@ -31,10 +38,28 @@ return require('packer').startup(function()
 	lspconfig.ansiblels.setup{}
 	lspconfig.vimls.setup{}
 	lspconfig.terraformls.setup{}
-	
+        lspconfig.sumneko_lua.setup{}
 	lspconfig.pyright.setup{}
 	lspconfig.bashls.setup{}
-  -- vim-games
-  use 'ThePrimeagen/vim-be-good'
+
+	use({
+	'CosmicNvim/cosmic-ui',
+	requires = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
+	config = function()
+	require('cosmic-ui').setup()
+	end,
+	})
+
+	use "rafamadriz/neon"
+
+	use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+        }
+	if packer_bootstrap then
+    require('packer').sync()
+  end
 end)
+
 -- test
+
