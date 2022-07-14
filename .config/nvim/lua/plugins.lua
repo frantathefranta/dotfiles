@@ -17,11 +17,22 @@ vim.cmd([[
 -- apply colorscheme
 vim.cmd[[colorscheme neon]]
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   -- mkdir
   use 'jghauser/mkdir.nvim'
+  use 'tmux-plugins/vim-tmux'
+  use { 'ibhagwan/fzf-lua',
+  -- optional for icon support
+  requires = { 'kyazdani42/nvim-web-devicons' }
+}
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
   -- making sure lsp-installer starts before lspconfig
   use
 	  {
@@ -59,7 +70,12 @@ return require('packer').startup(function(use)
 	if packer_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+config = {
+  display = {
+    open_fn = require('packer.util').float,
+  }
+}})
 
 -- test
 
