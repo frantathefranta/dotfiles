@@ -27,12 +27,24 @@ return require('packer').startup({function(use)
   -- optional for icon support
   requires = { 'kyazdani42/nvim-web-devicons' }
 }
+  use "Pocco81/AutoSave.nvim"
   use {
     'numToStr/Comment.nvim',
     config = function()
         require('Comment').setup()
     end
 }
+  use({
+    "kylechui/nvim-surround",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+})
+  use 'jiangmiao/auto-pairs'
+
+
   -- making sure lsp-installer starts before lspconfig
   use
 	  {
