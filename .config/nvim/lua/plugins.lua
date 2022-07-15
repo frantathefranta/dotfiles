@@ -5,7 +5,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+--vim.cmd [[packadd packer.nvim]]
 
 -- auto apply config when plugins.lua is updated
 vim.cmd([[
@@ -15,7 +15,7 @@ vim.cmd([[
   augroup end
 ]])
 -- apply colorscheme
-vim.cmd[[colorscheme neon]]
+--vim.cmd[[colorscheme neon]]
 
 return require('packer').startup({function(use)
   -- Packer can manage itself
