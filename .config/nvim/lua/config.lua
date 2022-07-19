@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "lua", "rust", "bash", "comment", "dockerfile", "dot", "go", "help", "json", "markdown", "perl", "python", "regex", "toml", "vim", "yaml" },
+  ensure_installed = { "c", "lua", "rust", "bash", "comment", "dockerfile", "dot", "go", "help", "json", "markdown", "perl", "python", "regex", "toml", "vim", "yaml", "norg" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
@@ -46,3 +46,16 @@ autosave.setup(
         debounce_delay = 135
     }
 )
+
+require('neorg').setup {load = {
+	["core.defaults"] = {},
+	["core.norg.concealer"] = {},
+	["core.norg.dirman"] = {
+            config = {
+                workspaces = {
+                    work = "~/notes/work",
+                    home = "~/notes/home",
+                }
+            }
+        }
+}}

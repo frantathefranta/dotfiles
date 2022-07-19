@@ -15,7 +15,7 @@ vim.cmd([[
   augroup end
 ]])
 -- apply colorscheme
---vim.cmd[[colorscheme neon]]
+vim.cmd[[colorscheme neon]]
 
 return require('packer').startup({function(use)
   -- Packer can manage itself
@@ -43,8 +43,26 @@ return require('packer').startup({function(use)
     end
 })
   use 'jiangmiao/auto-pairs'
-
-
+use({
+  "NTBBloodbath/galaxyline.nvim",
+  -- your statusline
+  config = function()
+    require("galaxyline.themes.eviline")
+  end,
+  -- some optional icons
+  requires = { "kyazdani42/nvim-web-devicons", opt = true }
+})
+use{'ms-jpq/coq_nvim', branch = 'coq'}
+use{'ms-jpq/coq.artifacts', branch = 'artifacts'}
+use{'ms-jpq/coq.thirdparty', branch = '3p'}
+use {
+    "nvim-neorg/neorg",
+    config = function()
+        require('neorg').setup {
+        }
+    end,
+    requires = "nvim-lua/plenary.nvim"
+}
   -- making sure lsp-installer starts before lspconfig
   use
 	  {
