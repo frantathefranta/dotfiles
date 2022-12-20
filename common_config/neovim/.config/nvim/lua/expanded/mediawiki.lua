@@ -1,0 +1,6 @@
+vim.g.vim_mediawiki_site = 'wiki.osc.edu'
+vim.g.vim_mediawiki_surround_wikilink = 'l'
+vim.g.vim_mediawiki_surround_template = 't'
+vim.g.vim_mediawiki_surround_bold = 'b'
+vim.g.vim_mediawiki_surround_italic = 'i'
+-- vim.g.vim_mediawiki_browser_command = 'firefox \r'

@@ -1,0 +1,13 @@
+{
+    "coc": {
+        "source": {
+            "mediawiki": {
+                "enable": true,
+                "priority": 99
+            }
+	    "coc-ultisnips": {
+				"enable":true
+			}
+        }
+    }
+}
