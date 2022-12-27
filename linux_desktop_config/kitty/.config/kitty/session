@@ -1,0 +1,6 @@
+# vim:fileencoding=utf-8:ft=kitty
+layout vertical
+launch tmux a
+
+new_tab mosh
+launch mosh --ssh="ssh -i .ssh/OverWNAkey -p 30500" franta@franta.us -- tmux a
