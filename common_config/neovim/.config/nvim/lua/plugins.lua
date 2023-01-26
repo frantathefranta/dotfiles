@@ -25,10 +25,19 @@ return require('packer').startup({function(use)
   use 'wbthomason/packer.nvim'
   -- Required dependencies for many plugins (telescope)
   use 'nvim-lua/plenary.nvim'
+  -- Dev-icons dependencies
+  use 'nvim-tree/nvim-web-devicons'
   -- mkdir
   use 'jghauser/mkdir.nvim'
   --dashboard
-  use 'glepnir/dashboard-nvim'
+use {
+  'glepnir/dashboard-nvim',
+  -- event = 'VimEnter',
+  config = function()
+    require('dashboard')
+  end,
+  require = { {'nvim-tree/nvim-web-devicons'}}
+}
   --kitty
   use "fladson/vim-kitty"
 
@@ -156,6 +165,11 @@ use {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
 }
+use {
+	"pearofducks/ansible-vim",
+	after='mason.nvim',
+	}
+
 	-- firenvim is used for embedding neovim in the browser
 use {
     'glacambre/firenvim',
