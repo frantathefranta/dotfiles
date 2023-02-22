@@ -4,6 +4,6 @@ README.MD
 .config/nvim/.gitignore
 {{- if ne .chezmoi.hostname "NC254439"}}
 .config/kitty/**
-.config/nvim/plugin/workmac_firenvim.vim
+.config/nvim/work_darwin_*.vim
 .config/nvim/**/work_darwin_*.lua
 {{- end}}
