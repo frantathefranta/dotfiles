@@ -2,4 +2,5 @@
 README.MD
 {{- if ne .chezmoi.hostname "NC254439"}}
 .config/kitty/**
+.config/nvim/plugins/workmac_firenvim.vim
 {{- end}}
