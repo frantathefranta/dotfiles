@@ -1,3 +1,5 @@
+# ft=gitignore
+README.MD
 {{- if ne .chezmoi.hostname "NC254439"}}
-.config/kitty
+dot_config/kitty/**
 {{- end}}

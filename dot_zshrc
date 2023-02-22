@@ -126,9 +126,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 if [ -f $HOME/.workrc ]; then
 	. $HOME/.workrc
 fi
@@ -136,8 +133,10 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-alias dotconf='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 export EDITOR=nvim
+bindkey '^ ' autosuggest-accept
+bindkey '^j' autosuggest-execute
+bindkey '^k' autosuggest-clear
 if [ -d "$HOME/.cargo/bin" ]
 then
 	export PATH=$PATH:$HOME/.cargo/bin
