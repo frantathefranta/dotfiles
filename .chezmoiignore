@@ -1,5 +1,6 @@
 # ft=gitignore
 README.MD
+.config/nvim/lazy-lock.json
 {{- if ne .chezmoi.hostname "NC254439"}}
 .config/kitty/**
 .config/nvim/plugins/workmac_firenvim.vim
