@@ -9,3 +9,7 @@ README.MD
 .config/nvim/**/work_darwin_*.lua
 .config/karabiner/**
 {{- end}}
+
+{{- if eq .chezmoi.osRelease.id "rhel"}}
+.zshrc
+{{- end}}
