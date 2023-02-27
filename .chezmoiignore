@@ -7,4 +7,5 @@ README.MD
 .config/kitty/**
 .config/nvim/work_darwin_*.vim
 .config/nvim/**/work_darwin_*.lua
+.config/karabiner/**
 {{- end}}
