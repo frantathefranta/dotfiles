@@ -5,7 +5,6 @@ README.MD
 .config/karabiner/automatic_backups/**
 {{- if ne .chezmoi.hostname "NC254439"}}
 .config/kitty/**
-.config/nvim/work_darwin_*.vim
 .config/nvim/**/work_darwin_*.lua
 .config/karabiner/**
 {{- end}}
