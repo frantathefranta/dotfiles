@@ -1,4 +1,4 @@
-# ft=gitignore
+# vim:ft=gitignore
 README.MD
 .config/nvim/lazy-lock.json
 .config/nvim/.gitignore
