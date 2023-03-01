@@ -9,6 +9,8 @@ README.MD
 .config/karabiner/**
 {{- end}}
 
-{{- if hasKey .chezmoi.osRelease "id" }}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{- if eq .chezmoi.osRelease.id "rhel" -}}
 .zshrc
+{{- end}}
 {{- end}}
