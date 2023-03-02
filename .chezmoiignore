@@ -3,13 +3,13 @@ README.MD
 .config/nvim/lazy-lock.json
 .config/nvim/.gitignore
 .config/karabiner/automatic_backups/**
-{{- if eq .chezmoi.os "darwin" -}}
-  .config/kitty/**
-  .config/karabiner/**
-  {{- if ne .chezmoi.hostname "NC254439" -}}
-  .config/nvim/**/work_darwin_*
-  {{- end -}}
-{{- end -}}
+{{- if ne .chezmoi.os "darwin" -}}
+.config/kitty/**
+.config/karabiner/**
+{{- if ne .chezmoi.hostname "NC254439" -}}
+.config/nvim/**/work_darwin_*
+{{- end }}
+{{- end }}
 
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{- if eq .chezmoi.osRelease.id "rhel" -}}
