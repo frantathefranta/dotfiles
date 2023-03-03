@@ -1,4 +1,5 @@
 return {
+	{ "echasnovski/mini.pairs", enabled = false },
 	{
 		"telescope.nvim",
 		dependencies = {
@@ -9,8 +10,14 @@ return {
 			end,
 		},
 	},
-	"Pocco81/auto-save.nvim",
-	"fladson/vim-kitty",
+	{
+		"Pocco81/auto-save.nvim",
+		event = "VeryLazy",
+	},
+	{
+		"fladson/vim-kitty",
+		ft = "kitty",
+	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
