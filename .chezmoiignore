@@ -3,14 +3,19 @@ README.MD
 .config/nvim/lazy-lock.json
 .config/nvim/.gitignore
 .config/karabiner/automatic_backups/**
-{{ if ne .chezmoi.os "darwin" }}
+
+# Ignore these if machine isn't macOS
+{{- if ne .chezmoi.os "darwin" }}
 .config/kitty/**
 .config/karabiner/**
-  {{ if ne .chezmoi.hostname "NC254439" }}
-  .config/nvim/**/work_darwin_*
-  {{ end }}
+{{- end}}
+
+# Ignore these if machine isn't work macOS laptop
+{{ if ne .chezmoi.hostname "NC254439" }}
+.config/nvim/**/work_darwin_*
 {{ end }}
 
+# Ignore these if machine isn't RHEL
 {{- if hasKey .chezmoi.osRelease "id" -}}
   {{- if eq .chezmoi.osRelease.id "rhel" -}}
   .zshrc
