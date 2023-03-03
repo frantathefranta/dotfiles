@@ -6,3 +6,6 @@ launch ssh-yubikey.sh bastion2.osc.edu
 
 new_tab mosh
 launch mosh --ssh="ssh -i .ssh/OverWNAkey -p 30500" franta@franta.us -- tmux a
+
+layout tall
+launch zsh

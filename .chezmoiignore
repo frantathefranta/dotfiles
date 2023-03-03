@@ -6,13 +6,19 @@ README.MD
 
 # Ignore these if machine isn't macOS
 {{- if ne .chezmoi.os "darwin" }}
-.config/kitty/**
 .config/karabiner/**
+.config/kitty/macos-launch-services-cmdline
+.config/kitty/session_darwin
 {{- end}}
 
 # Ignore these if machine isn't work macOS laptop
 {{ if ne .chezmoi.hostname "NC254439" }}
 .config/nvim/**/work_darwin_*
+.config/kitty/session_darwin
+{{ end }}
+
+{{ if ne .chezmoi.hostname "franta-desktop" }}
+.config/kitty/session_linux
 {{ end }}
 
 # Ignore these if machine isn't RHEL
