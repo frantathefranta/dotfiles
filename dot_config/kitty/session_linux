@@ -1,1 +1,12 @@
+
+layout tall
+
+new_tab shell
 launch zsh
+
+new_tab aerc
+launch aerc
+
+new_tab
+launch mosh arch-sshnode.infra -- tmux a
+
