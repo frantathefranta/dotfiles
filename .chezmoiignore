@@ -2,6 +2,7 @@
 README.MD
 .config/nvim/lazy-lock.json
 .config/nvim/.gitignore
+.config/karabiner
 
 # Ignore these if machine isn't macOS
 {{- if ne .chezmoi.os "darwin" }}
