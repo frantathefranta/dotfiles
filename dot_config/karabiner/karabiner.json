@@ -376,6 +376,16 @@
                             "consumer_key_code": "al_text_editor"
                         }
                     ]
+                },
+                {
+                    "from": {
+                        "key_code": "application"
+                    },
+                    "to": [
+                        {
+                            "apple_vendor_keyboard_key_code": "launchpad"
+                        }
+                    ]
                 }
             ],
             "virtual_hid_keyboard": {
