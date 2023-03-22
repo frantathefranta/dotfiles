@@ -2,7 +2,6 @@
 README.MD
 .config/nvim/lazy-lock.json
 .config/nvim/.gitignore
-.config/karabiner/automatic_backups/**
 
 # Ignore these if machine isn't macOS
 {{- if ne .chezmoi.os "darwin" }}

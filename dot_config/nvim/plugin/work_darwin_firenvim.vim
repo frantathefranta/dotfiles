@@ -10,7 +10,7 @@ let g:firenvim_config = {
 	    \},
 	    \ '.*': {
 	    \ 'takeover': 'never',
-      \ "cmdline":"none",
+      \ "cmdline": "none",
     \},
     \}
     \}

@@ -142,4 +142,23 @@ if [ -d "$HOME/.local/bin" ]
 then
 	export PATH=$PATH:$HOME/.local/bin
 fi
+if [ -d "$HOME/.config/emacs/bin" ]
+then
+	export PATH=$PATH:$HOME/.config/emacs/bin
+fi
 alias cz="chezmoi"
+alias pa="personalpass"
+alias wpa="workpass"
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
+compdef _pass personalpass
+zstyle ':completion::complete:personalpass::' prefix "$HOME/.password-store/personal"
+personalpass() {
+  PASSWORD_STORE_DIR=$HOME/.password-store/personal pass $@
+}
+
+compdef _pass workpass
+zstyle ':completion::complete:workpass::' prefix "$HOME/.password-store/work"
+workpass() {
+  PASSWORD_STORE_DIR=$HOME/.password-store/work pass $@
+}
