@@ -149,6 +149,7 @@ fi
 alias cz="chezmoi"
 alias pa="personalpass"
 alias wpa="workpass"
+alias em="emacsclient -nw"
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 compdef _pass personalpass
