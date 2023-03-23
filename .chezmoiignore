@@ -38,6 +38,9 @@ README.MD
 {{ end }}
 
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 {{- if hasKey .chezmoi.osRelease "id" -}}
   {{ if ne .chezmoi.osRelease.id "endeavouros" }}
