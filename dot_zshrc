@@ -84,7 +84,7 @@ plugins=(
   git
   python
   sudo
-  tmux
+  # tmux
   copypath
   copyfile
   aws

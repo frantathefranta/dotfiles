@@ -2,6 +2,7 @@
 README.MD
 .config/nvim/lazy-lock.json
 .config/nvim/.gitignore
+<<<<<<< Updated upstream
 .config/karabiner
 
 # Ignore these if machine isn't macOS
@@ -22,7 +23,28 @@ README.MD
 {{ end }}
 
 # Ignore these if machine isn't RHEL
+=======
+.config/karabiner/automatic_backups/**
+
+{{ if ne .chezmoi.os "darwin" }}
+.config/kitty/kitty.conf_linux
+.config/kitty/theme.conf
+.config/kitty/kittens/**
+.config/karabiner/**
+  {{ if ne .chezmoi.hostname "NC254439" }}
+  .config/nvim/**/work_darwin_*
+  .config/kitty/session_darwin_work
+  {{ end }}
+{{ end }}
+
+
+>>>>>>> Stashed changes
 {{- if hasKey .chezmoi.osRelease "id" -}}
+  {{ if ne .chezmoi.osRelease.id "endeavouros" }}
+  .config/kitty/kitty.conf_darwin
+  .config/kitty/kittens/**
+  .config/kitty/session_linux
+  {{ end }}
   {{- if eq .chezmoi.osRelease.id "rhel" -}}
   .zshrc
   {{- end}}
