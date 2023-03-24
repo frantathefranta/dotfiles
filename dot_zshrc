@@ -94,6 +94,7 @@ plugins=(
 	)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#FPATH="($brew --prefix)share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit; compinit
 source $ZSH/oh-my-zsh.sh
 
@@ -147,19 +148,19 @@ then
 	export PATH=$PATH:$HOME/.config/emacs/bin
 fi
 alias cz="chezmoi"
-alias pa="personalpass"
+#alias pa="personalpass"
 alias wpa="workpass"
 alias em="emacsclient -nw"
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
-compdef _pass personalpass
-zstyle ':completion::complete:personalpass::' prefix "$HOME/.password-store/personal"
-personalpass() {
-  PASSWORD_STORE_DIR=$HOME/.password-store/personal pass $@
-}
+# compdef _pass personalpass
+# zstyle ':completion::complete:personalpass::' prefix "$HOME/.password-store/personal"
+# personalpass() {
+#   PASSWORD_STORE_DIR=$HOME/.password-store/personal pass $@
+# }
 
 compdef _pass workpass
-zstyle ':completion::complete:workpass::' prefix "$HOME/.password-store/work"
+zstyle ':completion::complete:workpass::' prefix "$HOME/work/.password-store/"
 workpass() {
-  PASSWORD_STORE_DIR=$HOME/.password-store/work pass $@
+  PASSWORD_STORE_DIR=$HOME/work/.password-store/ pass $@
 }
