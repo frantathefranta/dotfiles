@@ -1,5 +1,4 @@
 return {
-  { "echasnovski/mini.pairs", enabled = false },
   { "chrisbra/csv.vim" },
   --	{ "wakatime/vim-wakatime", event = "VeryLazy" },
   {
@@ -50,8 +49,7 @@ return {
       },
     },
   },
-  { "echasnovski/mini.pairs", enabled = false },
-  { "wakatime/vim-wakatime", event = "VeryLazy" },
+  -- { "wakatime/vim-wakatime", event = "VeryLazy" },
   {
     "telescope.nvim",
     dependencies = {
