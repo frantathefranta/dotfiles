@@ -1,0 +1,4 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+defaults write org.gpgtools.pinentry-mac UseKeychain -bool NO
+{{ end -}}
