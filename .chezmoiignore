@@ -11,6 +11,7 @@ README.MD
 .config/kitty/theme.conf
 .config/kitty/kittens/**
 .config/karabiner/**
+.hammerspoon/
 {{ end }}
 # Ignore these if machine isn't work macOS laptop
 {{ if ne .chezmoi.hostname "NC254439" }}
