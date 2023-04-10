@@ -3,6 +3,8 @@ README.MD
 .config/nvim/lazy-lock.json
 .config/nvim/.gitignore
 .config/karabiner
+.config/emacs/**
+.oh-my-zsh/**
 
 # Ignore these if machine isn't macOS
 
