@@ -37,3 +37,6 @@ README.MD
   .zshrc
   {{- end}}
 {{- end}}
+{{ if eq .chezmoi.fqdnHostname "*.osc.edu" }}
+.bashrc
+{{ end }}
