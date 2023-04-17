@@ -153,6 +153,7 @@ alias cz="chezmoi"
 alias wpa="workpass"
 alias em="emacsclient -nw"
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+export EA_EDITOR='emacsclient -a "" -c'
 
 # compdef _pass personalpass
 # zstyle ':completion::complete:personalpass::' prefix "$HOME/.password-store/personal"

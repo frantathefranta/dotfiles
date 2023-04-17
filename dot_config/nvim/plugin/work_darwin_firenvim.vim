@@ -1,16 +1,16 @@
 let g:firenvim_config = { 
     \ 'globalSettings': {
 	    \ 'takeover': 'never',
-      \ 'cmdline': 'none',
+      \ 'cmdline': 'neovim',
     \ },
     \ 'localSettings': {
 	    \ 'https://wiki.osc.edu/': {
 	    \ 'takeover': 'always',
-      \ 'cmdline': 'none',
+      \ 'cmdline': 'neovim',
 	    \},
 	    \ '.*': {
 	    \ 'takeover': 'never',
-      \ "cmdline": "none",
+      \ "cmdline": "neovim",
     \},
     \}
     \}

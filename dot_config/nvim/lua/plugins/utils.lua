@@ -1,5 +1,5 @@
 return {
-  { "chrisbra/csv.vim" },
+--  { "chrisbra/csv.vim" },
   --	{ "wakatime/vim-wakatime", event = "VeryLazy" },
   {
     "telescope.nvim",

@@ -77,3 +77,65 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+;; (use-package uuid :commands uuid-string)
+;; (defun uuid-string ()
+;;   "Make a string form of a UUID directly."
+;;   (uuid))
+(defun meain/get-scratch-message ()
+  "Pull a random fortue entry and format it for `lisp-interaction' mode as a comment."
+  (concat (mapconcat 'identity
+                     (mapcar (lambda (x)
+                               (cl-concatenate 'string ";; " x))
+                             (cl-remove-if (lambda (x)
+                                             (equal x ""))
+                                           (split-string (shell-command-to-string "shuf -n1 ~/.local/share/quotes")
+                                                         "\n")))
+                     "\n")
+          "\n"))
+(setq initial-scratch-message (meain/get-scratch-message))
+(defun meain/create-or-switch-to-scratch ()
+  "Switch to scratch buffer if exists, else create a scratch buffer with our config."
+  (cond
+   ((get-buffer "*scratch*")
+    (switch-to-buffer "*scratch*"))
+   (t (progn
+        (switch-to-buffer "*scratch*")
+        (setq default-directory "~/")
+        (lisp-interaction-mode)
+        (insert (meain/get-scratch-message))))))
+(defun meain/kill-current-buffer-unless-scratch ()
+  "Kill current buffer if it is not scratch."
+  (interactive)
+  (if (= (length (mapcar #'window-buffer
+                         (window-list))) 1)
+      (meain/create-or-switch-to-scratch)
+    (cond
+     ((derived-mode-p 'prog-mode)
+      (evil-quit))
+     ((member major-mode '(imenu-list-major-mode magit-mode))
+      (evil-quit))
+     ((equal major-mode 'vterm-mode)
+      (progn
+        (evil-insert 1)
+        (vterm-reset-cursor-point)))
+     (t (previous-buffer)))))
+(define-key evil-normal-state-map (kbd "q") 'meain/kill-current-buffer-unless-scratch)
+
+(defun meain/quick-edit-end ()
+  "Util function to be executed on qed completion."
+  (interactive)
+  (mark-whole-buffer)
+  (call-interactively 'kill-ring-save)
+  (meain/kill-current-buffer-unless-scratch))
+(defun meain/quick-edit ()
+  "Util function for use with hammerspoon quick edit functionality."
+  (interactive)
+  (let ((qed-buffer-name (cl-concatenate 'string
+                                 "qed-"
+                                 (substring (uuidgen-4)
+                                        0
+                                        4))))
+    (generate-new-buffer qed-buffer-name)
+    (switch-to-buffer qed-buffer-name)
+    (evil-paste-after 1)
+    (gfm-mode)))
