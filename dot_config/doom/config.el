@@ -42,6 +42,9 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/syncthing/org/")
 
+;; Auto revert (refresh actually, I don't understand the language here) files when they change
+;; Copied from here https://kundeveloper.com/blog/autorevert/
+(global-auto-revert-mode t)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
