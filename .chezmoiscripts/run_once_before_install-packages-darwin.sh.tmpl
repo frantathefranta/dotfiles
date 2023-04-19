@@ -3,6 +3,9 @@
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 
+tap "jimeh/emacs-builds"
+tap "jakehilborn/jakehilborn"
+
 brew "btop"
 
 # Git
@@ -19,6 +22,7 @@ brew "fzf"
 brew "fd"
 brew "tree"
 brew "tmux"
+brew "displayplacer"
 
 # LSP servers
 brew "npm"
@@ -32,6 +36,5 @@ cask "karabiner-elements"
 cask "kitty"
 cask "syncthing"
 cask "emacs-app"
-tap "jimeh/emacs-builds"
 EOF
 {{ end -}}
