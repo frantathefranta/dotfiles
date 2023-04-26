@@ -81,6 +81,7 @@
 ;; (defun uuid-string ()
 ;;   "Make a string form of a UUID directly."
 ;;   (uuid))
+;; NOTE All meain functions are from here https://github.com/meain/dotfiles/blob/25863934a8bcab3e1075cf2f7564b1290b77d14b/emacs/.config/emacs/init.el#L2186
 (defun meain/get-scratch-message ()
   "Pull a random fortue entry and format it for `lisp-interaction' mode as a comment."
   (concat (mapconcat 'identity
