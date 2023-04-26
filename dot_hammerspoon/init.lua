@@ -2,6 +2,8 @@ local hyper = {"cmd", "alt", "ctrl", "shift"}
 local editor = "Emacs"
 
 local quick_edit_app = nil
+-- This block copies a text field in browser and opens it in Emacs
+-- More information here https://github.com/meain/dotfiles/blob/25863934a8bcab3e1075cf2f7564b1290b77d14b/hammerspoon/.config/hammerspoon/init.lua#L363
 hs.hotkey.bind(
     hyper,
     "`",
