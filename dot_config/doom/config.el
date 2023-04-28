@@ -41,6 +41,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/syncthing/org/")
+(setq org-agenda-files (quote ("~/syncthing/org/todo.org"
+                               "~/syncthing/org/notes.org"
+                               "~/syncthing/org/house_reno.org")))
 
 ;; Auto revert (refresh actually, I don't understand the language here) files when they change
 ;; Copied from here https://kundeveloper.com/blog/autorevert/
