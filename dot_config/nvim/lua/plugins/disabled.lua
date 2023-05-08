@@ -11,4 +11,7 @@ return {
   -- { "nvim-pack/nvim-spectre", enabled = false },
   { "windwp/nvim-spectre", enabled = false },
   { "folke/which-key.nvim", enabled = false },
+  { "folke/persistence.nvim", enabled = false },
+  { "folke/todo-comments.nvim", enabled = false },
+  { "catpuccin/nvim", enabled = false },
 }

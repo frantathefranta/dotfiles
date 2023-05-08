@@ -15,10 +15,10 @@ return {
     "Pocco81/auto-save.nvim",
     event = "VeryLazy",
   },
-  {
-    "fladson/vim-kitty",
-    ft = "kitty",
-  },
+  -- {
+  --   "fladson/vim-kitty",
+  --   ft = "kitty",
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -49,7 +49,6 @@ return {
       },
     },
   },
-  -- { "wakatime/vim-wakatime", event = "VeryLazy" },
   {
     "telescope.nvim",
     dependencies = {
@@ -64,10 +63,10 @@ return {
     "Pocco81/auto-save.nvim",
     event = "VeryLazy",
   },
-  {
-    "fladson/vim-kitty",
-    ft = "kitty",
-  },
+  -- {
+  --   "fladson/vim-kitty",
+  --   ft = "kitty",
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
