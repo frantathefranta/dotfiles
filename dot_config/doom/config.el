@@ -41,9 +41,6 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/syncthing/org/")
-(setq org-agenda-files (quote ("~/syncthing/org/todo.org"
-                               "~/syncthing/org/notes.org"
-                               "~/syncthing/org/house_reno.org")))
 
 ;; Auto revert (refresh actually, I don't understand the language here) files when they change
 ;; Copied from here https://kundeveloper.com/blog/autorevert/
@@ -85,6 +82,25 @@
 ;;   "Make a string form of a UUID directly."
 ;;   (uuid))
 ;; NOTE All meain functions are from here https://github.com/meain/dotfiles/blob/25863934a8bcab3e1075cf2f7564b1290b77d14b/emacs/.config/emacs/init.el#L2186
+;; (customize-set-variable
+;;  'tramp-password-prompt-regexp
+;;  (concat
+;;   "^.*"
+;;   (regexp-opt
+;;    '("passphrase"))))
+;; (add-to-list 'tramp-connection-properties
+;;              (list (regexp-quote "/ssh:fbartik@bastion2.osc.edu:")
+;;                    "remote-shell" "/bin/bash"))
+(customize-set-variable 'tramp-encoding-shell "/bin/zsh")
+;; (customize-set-variable
+;;  'tramp-ssh-controlmaster-options
+;;  (concat
+;;  "-o ControlPath=/Users/fbartik/.ssh/cm-%%r@%%h:%%p "
+;;  "-o ControlMaster=auto -o ControlPersist=yes"))
+(customize-set-variable 'tramp-use-ssh-controlmaster-options nil)
+(setq tramp-verbose 6)
+(setq tramp-terminal-type "tramp")
+;; (setq tramp-shell-prompt-pattern "\\(?:^\\|\r\\)[^]#$%>\n]*#?[]#$%>].* *\\(^[\\[[0-9;]*[a-zA-Z] *\\)*")
 (defun meain/get-scratch-message ()
   "Pull a random fortue entry and format it for `lisp-interaction' mode as a comment."
   (concat (mapconcat 'identity
