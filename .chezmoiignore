@@ -27,7 +27,7 @@ README.MD
 {{ end }}
 
 # Ignore these if machine isn't RHEL
-{{- if hasKey .chezmoi.osRelease "id" -}}
+{{ if hasKey .chezmoi.osRelease "id" }}
   {{ if ne .chezmoi.osRelease.id "endeavouros" }}
   .config/kitty/kitty.conf_darwin
   .config/kitty/kittens/**
@@ -37,7 +37,7 @@ README.MD
   .config/nvim/lua/plugin/lspconfig.lua
   .zshrc
   {{ end }}
-{{- end}}
+{{ end }}
 {{ if eq .chezmoi.fqdnHostname "*.osc.edu" }}
 .bashrc
 {{ end }}
