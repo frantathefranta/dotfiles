@@ -15,6 +15,7 @@ README.MD
 .config/karabiner/**
 .hammerspoon/
 {{ end }}
+
 # Ignore these if machine isn't work macOS laptop
 {{ if ne .chezmoi.hostname "NC254439" }}
 .config/nvim/**/work_darwin_*
@@ -26,16 +27,16 @@ README.MD
 {{ end }}
 
 # Ignore these if machine isn't RHEL
-
 {{- if hasKey .chezmoi.osRelease "id" -}}
   {{ if ne .chezmoi.osRelease.id "endeavouros" }}
   .config/kitty/kitty.conf_darwin
   .config/kitty/kittens/**
   .config/kitty/session_linux
   {{ end }}
-  {{- if eq .chezmoi.osRelease.id "rhel" -}}
+  {{ if eq .chezmoi.osRelease.id "rhel" }}
+  .config/nvim/lua/plugin/lspconfig.lua
   .zshrc
-  {{- end}}
+  {{ end }}
 {{- end}}
 {{ if eq .chezmoi.fqdnHostname "*.osc.edu" }}
 .bashrc

@@ -1,3 +1,4 @@
+{{ if ne .chezmoi.fqdnHostname "*.osc.edu" }}
 [".oh-my-zsh"]
     type = "archive"
     url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
@@ -31,3 +32,4 @@
     type = "archive"
     url = "https://github.com/doomemacs/doomemacs/archive/master.tar.gz"
     stripComponents = 1
+{{ end }}

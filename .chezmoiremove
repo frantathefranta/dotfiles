@@ -1,2 +1,5 @@
 .wakatime/
 .wakatime*
+{{ if eq .chezmoi.fqdnHostname "*.osc.edu" }}
+.oh-my-zsh/
+{{ end }}
