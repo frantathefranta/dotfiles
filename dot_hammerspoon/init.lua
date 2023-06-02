@@ -35,7 +35,7 @@ hs.hotkey.bind(
     end
 )
 hs.hotkey.bind(hyper, "k", function()
-	hs.application.launchOrFocus("Kitty")
+	hs.application.launchOrFocus("/Applications/iTerm.app")
 end)
 
 hs.hotkey.bind(hyper, "e", function()
@@ -60,6 +60,10 @@ end)
 
 hs.hotkey.bind(hyper, "v", function()
 	hs.application.launchOrFocus("/Applications/VNC Viewer.app")
+end)
+
+hs.hotkey.bind(hyper, "t", function()
+	hs.application.launchOrFocus("/Applications/Microsoft To Do.app")
 end)
 
 hs.loadSpoon("ReloadConfiguration")
