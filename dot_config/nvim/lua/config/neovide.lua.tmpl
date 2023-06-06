@@ -1,0 +1,10 @@
+{{ if eq .chezmoi.os "darwin" }}
+if vim.g.neovide then
+  vim.cmd('colorscheme tokyonight-day')
+  vim.o.guifont = "Hasklug Nerd Font Mono:h14"
+  vim.g.neovide_remember_window_size = true
+  vim.g.neovide_cursor_animation_length = 0
+  vim.g.neovide_cursor_trail_size = 0
+    -- Put anything you want to happen only in Neovide here
+end
+{{ end }}

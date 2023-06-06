@@ -13,6 +13,7 @@ README.MD
 .config/kitty/theme.conf
 .config/kitty/kittens/**
 .config/karabiner/**
+.config/nvim/lua/config/neovide.lua
 .hammerspoon/
 {{ end }}
 
