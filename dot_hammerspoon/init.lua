@@ -66,5 +66,9 @@ hs.hotkey.bind(hyper, "t", function()
 	hs.application.launchOrFocus("/Applications/Microsoft To Do.app")
 end)
 
+hs.hotkey.bind(hyper, "n", function()
+	hs.application.launchOrFocus("/Applications/Neovide.app")
+end)
+
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
