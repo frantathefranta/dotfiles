@@ -18,10 +18,11 @@ return {
       dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
       dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
       dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
-      dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
       dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
       dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-      dashboard.button("o", "  " .. " New Obsidian Note", ":Lazy load obsidian.nvim <CR> | :e ~/syncthing/obsidian-vault/notes.md <CR>"),
+{{ if eq .hasGUI "true" }}
+      dashboard.button("o", " " .. " New Obsidian Note", ":Lazy load obsidian.nvim <CR> | :e ~/obsidian-vault/notes.md <CR>"),
+{{ end }}
       dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
