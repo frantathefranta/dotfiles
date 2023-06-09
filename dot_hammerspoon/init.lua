@@ -70,8 +70,10 @@ hs.hotkey.bind(hyper, "n", function()
 	hs.application.launchOrFocus("/Applications/Neovide.app")
 end)
 
+local wf=hs.window.filter
 switcher = hs.window.switcher.new()
-switcher_space = hs.window.switcher.new(hs.window.filter.new():setCurrentSpace(true):setDefaultFilter{}) -- include minimized/hidden windows, current Space only
+switcher_firefox = hs.window.switcher.new(wf.new():setAppFilter('Firefox')
+switcher_space = hs.window.switcher.new(wf.new():setCurrentSpace(true):setDefaultFilter{}) -- include minimized/hidden windows, current Space only
 hs.hotkey.bind('alt','tab','Next window',function()switcher:next()end)
 hs.hotkey.bind('alt-shift','tab','Prev window',function()switcher:previous()end)
 
