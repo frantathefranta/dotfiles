@@ -2,7 +2,9 @@
 {{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
 encryption = "gpg"
 [gpg]
-    recipient = "5BE11AFC8B8ED1592ADE086F88F3445AF0FB41C4"
+    recipient = "0x74AB8AFAF60A5137"
 [data]
     email = {{ $email | quote }}
     hasGUI = {{ $hasGUI | quote }}
+[git]
+    autoCommit = true
