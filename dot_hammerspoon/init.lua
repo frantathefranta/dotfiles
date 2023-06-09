@@ -70,5 +70,8 @@ hs.hotkey.bind(hyper, "n", function()
 	hs.application.launchOrFocus("/Applications/Neovide.app")
 end)
 
+switcher = hs.window.switcher.new()
+hs.hotkey.bind('alt','tab','Next window',function()switcher:next()end)
+
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
