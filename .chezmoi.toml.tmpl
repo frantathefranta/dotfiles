@@ -1,6 +1,8 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
 encryption = "gpg"
 [gpg]
     recipient = "5BE11AFC8B8ED1592ADE086F88F3445AF0FB41C4"
 [data]
     email = {{ $email | quote }}
+    hasGUI = {{ $hasGUI | quote }}
