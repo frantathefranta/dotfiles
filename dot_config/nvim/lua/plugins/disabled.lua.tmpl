@@ -10,7 +10,7 @@ return {
   { "jose-elias-alvarez/null-ls.nvim", enabled = false },
   -- { "nvim-pack/nvim-spectre", enabled = false },
   { "windwp/nvim-spectre", enabled = false },
-{{ if ne .chezmoi.os "darwin" }}
+{{ if ne .hasGUI "true" }}
   { "folke/which-key.nvim", enabled = false },
   { "folke/persistence.nvim", enabled = false },
 {{ end }}
