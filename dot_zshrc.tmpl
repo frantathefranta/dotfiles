@@ -61,10 +61,10 @@ fi
 
 {{ if eq .chezmoi.hostname "NC254439" }}
 alias b2="ssh-yubikey.sh b2 -t 'rm /run/user/38199/gnupg/S.gpg-agent; ~/bin/tmux a'"
-{{ end }}
 
 compdef _pass workpass
 zstyle ':completion::complete:workpass::' prefix "$HOME/work/.password-store/"
 workpass() {
   PASSWORD_STORE_DIR=$HOME/work/.password-store/ pass $@
 }
+{{ end }}
