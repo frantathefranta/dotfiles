@@ -71,7 +71,10 @@ hs.hotkey.bind(hyper, "n", function()
 end)
 
 switcher = hs.window.switcher.new()
+switcher_space = hs.window.switcher.new(hs.window.filter.new():setCurrentSpace(true):setDefaultFilter{}) -- include minimized/hidden windows, current Space only
 hs.hotkey.bind('alt','tab','Next window',function()switcher:next()end)
+hs.hotkey.bind('alt-shift','tab','Prev window',function()switcher:previous()end)
+
 
 hs.loadSpoon("ReloadConfiguration")
 spoon.ReloadConfiguration:start()
