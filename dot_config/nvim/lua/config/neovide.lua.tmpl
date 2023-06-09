@@ -1,4 +1,4 @@
-{{ if eq .chezmoi.os "darwin" }}
+{{ if eq .hasGUI "true" }}
 if vim.g.neovide then
   vim.cmd('colorscheme tokyonight-day')
   vim.o.guifont = "Hasklug Nerd Font Mono:h14"
