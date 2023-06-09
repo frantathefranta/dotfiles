@@ -1,0 +1,32 @@
+return {
+  "epwalsh/obsidian.nvim",
+  lazy = true,
+  event = { "BufReadPre " .. vim.fn.expand "~" .. "/obsidian-vault/**.md" },
+  dependencies = {
+    -- Required.
+    "nvim-lua/plenary.nvim",
+
+    -- Optional, for completion.
+    "hrsh7th/nvim-cmp",
+
+    -- Optional, for search and quick-switch functionality.
+    "nvim-telescope/telescope.nvim",
+  },
+  opts = {
+    dir = "~/obsidian-vault",
+
+    -- Optional, if you keep notes in a specific subdirectory of your vault.
+    notes_subdir = "notes",
+
+    daily_notes = {
+      -- Optional, if you keep daily notes in a separate directory.
+      folder = "notes/dailies",
+      -- Optional, if you want to change the date format for daily notes.
+      date_format = "%Y-%m-%d"
+    },
+    -- Optional, completion.
+    completion = {
+      nvim_cmp = true,  -- if using nvim-cmp, otherwise set to false
+    },
+  },
+}
