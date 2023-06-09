@@ -70,13 +70,13 @@ hs.hotkey.bind(hyper, "n", function()
 	hs.application.launchOrFocus("/Applications/Neovide.app")
 end)
 
-local wf=hs.window.filter
-switcher = hs.window.switcher.new()
-switcher_firefox = hs.window.switcher.new(wf.new():setAppFilter('/Applications/Firefox.app'))
-switcher_space = hs.window.switcher.new(wf.new():setCurrentSpace(true):setDefaultFilter{}) -- include minimized/hidden windows, current Space only
-hs.hotkey.bind('alt','tab','Next window',function()switcher:next()end)
-hs.hotkey.bind(hyper,'tab','Next window',function()switcher_firefox:next()end)
-hs.hotkey.bind('alt-shift','tab','Prev window',function()switcher_space:previous()end)
+-- local wf=hs.window.filter
+-- switcher = hs.window.switcher.new()
+-- switcher_firefox = hs.window.switcher.new(wf.new():setAppFilter('/Applications/Firefox.app'))
+-- switcher_space = hs.window.switcher.new(wf.new():setCurrentSpace(true):setDefaultFilter{}) -- include minimized/hidden windows, current Space only
+-- hs.hotkey.bind('alt','tab','Next window',function()switcher:next()end)
+-- hs.hotkey.bind(hyper,'tab','Next window',function()switcher_firefox:next()end)
+-- hs.hotkey.bind('alt-shift','tab','Prev window',function()switcher_space:previous()end)
 
 
 hs.loadSpoon("ReloadConfiguration")
