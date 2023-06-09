@@ -21,7 +21,7 @@ return {
       dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
       dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
 {{ if eq .hasGUI "true" }}
-      dashboard.button("o", " " .. " New Obsidian Note", ":Lazy load obsidian.nvim <CR> | :e ~/obsidian-vault/notes.md <CR>"),
+      dashboard.button("o", " " .. " New Obsidian Note", ":Lazy load obsidian.nvim <CR> | :ObsidianToday <CR>"),
 {{ end }}
       dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
