@@ -6,6 +6,9 @@ README.MD
 .config/emacs/**
 .oh-my-zsh/
 
+{{ if ne .hasGUI "true" }}
+.config/nvim/lua/config/neovide.lua
+{{ end }}
 # Ignore these if machine isn't macOS
 
 {{ if ne .chezmoi.os "darwin" }}
@@ -13,7 +16,6 @@ README.MD
 .config/kitty/theme.conf
 .config/kitty/kittens/**
 .config/karabiner/**
-.config/nvim/lua/config/neovide.lua
 .hammerspoon/
 {{ end }}
 
