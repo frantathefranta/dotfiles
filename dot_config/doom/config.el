@@ -8,7 +8,6 @@
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Franta Bartik"
       user-mail-address "fb@franta.us")
-
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use
@@ -21,8 +20,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(setq doom-font (font-spec :family "Hasklug Nerd Font" :size 16))
+     ;; doom-variable-pitch-font (font-spec :family "Hasklug Nerd Font" :size 16))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -32,7 +31,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-solarized-light)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -41,6 +40,13 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/syncthing/org/")
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+                               (file+headline "~/syncthing/org/inbox.org" "Tasks")
+                               "* TODO %i%?")))
+(setq org-agenda-files '("~/syncthing/org/inbox.org"
+                         "~/syncthing/org/gtd.org"
+                         "~/syncthing/org/tickler.org"))
+;; (add-hook! 'org-mode-hook #'mixed-pitch-mode)
 
 ;; Auto revert (refresh actually, I don't understand the language here) files when they change
 ;; Copied from here https://kundeveloper.com/blog/autorevert/
