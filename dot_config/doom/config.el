@@ -21,7 +21,7 @@
 ;; accept. For example:
 ;;
 (when (doom-font-exists-p "Iosevka Custom")
-    (setq doom-font                (font-spec :name "Iosevka Custom" :size 17)))
+    (setq doom-font                (font-spec :name "Iosevka Custom" :width 'expanded :size 17)))
 (when (doom-font-exists-p "Alegreya Sans")
     (setq doom-variable-pitch-font (font-spec :name "Alegreya Sans"  :size 20)))
 ;;
