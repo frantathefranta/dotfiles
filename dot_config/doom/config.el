@@ -20,8 +20,15 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Hasklug Nerd Font" :size 16))
+(when (doom-font-exists-p "Iosevka Custom")
+    (setq doom-font                (font-spec :name "Iosevka Custom" :size 17)))
+(when (doom-font-exists-p "Alegreya Sans")
+    (setq doom-variable-pitch-font (font-spec :name "Alegreya Sans"  :size 20)))
+;;
+;; Hasklug doesn't work for Emacs for some reason, it makes the highlighted lines jump back on forth
+;; (setq doom-font (font-spec :family "Hasklug Nerd Font" :size 16))
      ;; doom-variable-pitch-font (font-spec :family "Hasklug Nerd Font" :size 16))
+
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -35,7 +42,9 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-grow-only   t
+      display-line-numbers-type        'relative
+      display-line-numbers-width-start t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
