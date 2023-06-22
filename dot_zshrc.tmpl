@@ -41,6 +41,7 @@ bindkey '^k' autosuggest-clear
 if [ -d "$HOME/.password-store/" ]
 then
   export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+  export PASSWORD_STORE_CHARACTER_SET='[:alnum:].,!?&*%_$#^@{}[]()|=/+-'
 fi
 
 if [ -d "$HOME/.cargo/bin" ]
