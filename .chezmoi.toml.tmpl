@@ -1,10 +1,12 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
+{{- $isWork := promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
 encryption = "gpg"
 [gpg]
     recipient = "0xB55027F11D7D24C8"
 [data]
     email = {{ $email | quote }}
     hasGUI = {{ $hasGUI | quote }}
+    isWork = {{ $isWork | quote }}
 [git]
     autoCommit = true
