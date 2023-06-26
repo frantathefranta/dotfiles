@@ -45,13 +45,13 @@ return {
         "python",
         "markdown",
         "markdown_inline",
-{{ if eq isWork "false" }}
+{{ if eq .isWork "false" }}
         "dockerfile",
         "perl",
         "terraform",
         "lua",
 {{ end }}
-{{ if eq isWork "true" }}
+{{ if eq .isWork "true" }}
         "puppet",
 {{ end }}
       },
