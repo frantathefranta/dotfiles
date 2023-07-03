@@ -1,3 +1,4 @@
+require("hs.ipc")
 local hyper = {"cmd", "alt", "ctrl", "shift"}
 local editor = "Emacs"
 
