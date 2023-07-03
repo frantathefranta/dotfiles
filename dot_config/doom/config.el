@@ -107,7 +107,7 @@
 ;;              (list (regexp-quote "/ssh:fbartik@bastion2.osc.edu:")
 ;;                    "remote-shell" "/bin/bash"))
 (use-package! plz)
-(customize-set-variable 'tramp-encoding-shell "/bin/zsh")
+;; (customize-set-variable 'tramp-encoding-shell "/bin/zsh")
 ;; (customize-set-variable
 ;;  'tramp-ssh-controlmaster-options
 ;;  (concat
