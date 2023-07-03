@@ -1,6 +1,18 @@
 local hyper = {"cmd", "alt", "ctrl", "shift"}
 local editor = "Emacs"
 
+-- Optional configuration of beginEditShellCommand
+spoon.editWithEmacs.openEditorShellCommand = "EDITOR -e '(hammerspoon-edit-begin)'"
+
+hs.loadSpoon("editWithEmacs")
+if spoon.editWithEmacs then
+   local bindings = {
+      edit_selection =  { {"alt"}, "1"},
+      edit_all       = { {"alt"}, "2"}
+   }   
+   spoon.editWithEmacs:bindHotkeys(bindings)
+end
+
 -- local quick_edit_app = nil
 -- -- This block copies a text field in browser and opens it in Emacs
 -- -- More information here https://github.com/meain/dotfiles/blob/25863934a8bcab3e1075cf2f7564b1290b77d14b/hammerspoon/.config/hammerspoon/init.lua#L363
