@@ -2,8 +2,8 @@ require("hs.ipc")
 local hyper = {"cmd", "alt", "ctrl", "shift"}
 local editor = "Emacs"
 
--- -- Optional configuration of beginEditShellCommand
--- spoon.editWithEmacs.openEditorShellCommand = "EDITOR -e '(hammerspoon-edit-begin)'"
+-- Optional configuration of beginEditShellCommand
+-- spoon.editWithEmacs.openEditorShellCommand = "editor -e '(hammerspoon-edit-begin)'"
 
 hs.loadSpoon("editWithEmacs")
 if spoon.editWithEmacs then
