@@ -107,7 +107,9 @@
 ;;              (list (regexp-quote "/ssh:fbartik@bastion2.osc.edu:")
 ;;                    "remote-shell" "/bin/bash"))
 (use-package! plz)
-(load "~/.hammerspoon/Spoons/editWithEmacs.spoon/hammerspoon.el")
+(if (eq system-type 'darwin)
+  (load "~/.hammerspoon/Spoons/editWithEmacs.spoon/hammerspoon.el")
+)
 ;; (customize-set-variable 'tramp-encoding-shell "/bin/zsh")
 ;; (customize-set-variable
 ;;  'tramp-ssh-controlmaster-options
