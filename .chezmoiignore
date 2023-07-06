@@ -5,6 +5,7 @@ README.MD
 .config/karabiner
 .config/emacs/**
 .oh-my-zsh/
+.oh-my-zsh/custom/themes/powerlevel10k/gitstatus
 
 {{ if ne .hasGUI "true" }}
 .config/nvim/lua/config/neovide.lua
