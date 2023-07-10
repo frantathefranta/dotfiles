@@ -59,8 +59,10 @@ then
 	export PATH=$PATH:$HOME/.config/emacs/bin
 fi
 
+{{ if eq .chezmoi.hostname "franta-desktop"}}
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
+{{ end }}
 
 {{ if (and (eq .chezmoi.os "darwin") (eq .isWork "true")) }}
 alias b2="ssh-yubikey.sh b2 -t 'rm /run/user/38199/gnupg/S.gpg-agent; ~/bin/tmux a'"
