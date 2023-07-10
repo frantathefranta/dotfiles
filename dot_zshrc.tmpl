@@ -68,17 +68,12 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 
 {{ if (and (eq .chezmoi.os "darwin") (eq .isWork "true")) }}
 alias b2="ssh-yubikey.sh b2 -t 'rm /run/user/38199/gnupg/S.gpg-agent; ~/bin/tmux a'"
-compdef _pass workpass
-zstyle ':completion::complete:workpass::' prefix "$HOME/work/.password-store/"
-workpass() {
-  PASSWORD_STORE_DIR=$HOME/work/.password-store/ pass $@
-}
 {{ end }}
-tmux-window-name() {
-	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
-}
-
-add-zsh-hook chpwd tmux-window-name
+#tmux-window-name() {
+#	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+#}
+#
+#add-zsh-hook chpwd tmux-window-name
 
 eval "$(starship init zsh)"
 
