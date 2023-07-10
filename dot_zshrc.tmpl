@@ -62,7 +62,7 @@ fi
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper_lazy.sh
 
-{{ if eq .chezmoi.hostname "NC254439" }}
+{{ if (and (eq .chezmoi.os "darwin") (eq .isWork "true")) }}
 alias b2="ssh-yubikey.sh b2 -t 'rm /run/user/38199/gnupg/S.gpg-agent; ~/bin/tmux a'"
 compdef _pass workpass
 zstyle ':completion::complete:workpass::' prefix "$HOME/work/.password-store/"
