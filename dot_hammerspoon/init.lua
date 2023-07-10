@@ -82,9 +82,9 @@ end)
 hs.hotkey.bind(hyper, "n", function()
 	hs.application.launchOrFocus("/Applications/Neovide.app")
 end)
-hs.hotkey.bind(hyper, "a", function()
-	hs.application.launchOrFocus("Alacritty")
-end)
+-- hs.hotkey.bind(hyper, "a", function()
+-- 	hs.application.launchOrFocus("Alacritty")
+-- end)
 
 -- local wf=hs.window.filter
 -- switcher = hs.window.switcher.new()
