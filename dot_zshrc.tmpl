@@ -1,33 +1,33 @@
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
-DISABLE_AUTO_UPDATE="true"
-COMPLETION_WAITING_DOTS="true"
-
-plugins=(
-  # ansible
-  # docker
-  # docker-compose
-  git
-  python
-  sudo
-  # tmux
-  copypath
-  copyfile
-  # aws
-  fzf
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-	)
-
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+#export ZSH="$HOME/.oh-my-zsh"
+#
+#ZSH_THEME="powerlevel10k/powerlevel10k"
+#DISABLE_AUTO_UPDATE="true"
+#COMPLETION_WAITING_DOTS="true"
+#
+#plugins=(
+#  # ansible
+#  # docker
+#  # docker-compose
+#  git
+#  python
+#  sudo
+#  # tmux
+#  copypath
+#  copyfile
+#  # aws
+#  fzf
+#  zsh-autosuggestions
+#  zsh-syntax-highlighting
+#	)
+#
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-autoload -Uz compinit; compinit
-source $ZSH/oh-my-zsh.sh
+#autoload -Uz compinit; compinit
+#source $ZSH/oh-my-zsh.sh
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export EDITOR=nvim
 alias cz="chezmoi"
@@ -77,3 +77,6 @@ tmux-window-name() {
 }
 
 add-zsh-hook chpwd tmux-window-name
+
+eval "$(starship init zsh)"
+
