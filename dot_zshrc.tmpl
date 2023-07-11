@@ -19,13 +19,15 @@ antidote load
 #
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export HISTFILE=~/.zsh_history
+# Settings that make sure history is persistent in zsh even when terminal closes
+HISTFILE=~/.zsh_history
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 SAVEHIST=1000
 HISTSIZE=999
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
+
 export EDITOR=nvim
 alias cz="chezmoi"
 alias wpa="workpass"
