@@ -14,6 +14,9 @@ README.MD
 =======
 .config/karabiner/automatic_backups/**
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -49,6 +52,9 @@ README.MD
 
 {{- if hasKey .chezmoi.osRelease "id" -}}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -59,9 +65,12 @@ README.MD
   {{ end }}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   {{ if eq .chezmoi.osRelease.id "rhel" }}
   .config/nvim/lua/plugin/lspconfig.lua
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   {{- if eq .chezmoi.osRelease.id "rhel" -}}
