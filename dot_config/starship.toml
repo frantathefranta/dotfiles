@@ -48,3 +48,4 @@ disabled = true
 
 [hostname]
 ssh_only = true
+format = '[$hostname]($style)'
