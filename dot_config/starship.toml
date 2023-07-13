@@ -39,7 +39,7 @@ truncation_length = 8
 repo_root_style = 'underline white'
 
 [os]
-format = "on [($name )]($style)"
+# format = "on [($name )]($style)"
 style = "bold blue"
 
 [package]
