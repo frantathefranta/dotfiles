@@ -3,7 +3,7 @@ README.MD
 .config/nvim/.gitignore
 .config/karabiner
 .config/emacs/**
-.antidote/**
+#.antidote/**
 
 {{ if ne .hasGUI "true" }}
 .config/nvim/lua/config/neovide.lua
