@@ -41,6 +41,7 @@ repo_root_style = 'underline white'
 [os]
 # format = "on [($name )]($style)"
 style = "bold blue"
+disabled = "false"
 
 [package]
 disabled = true
