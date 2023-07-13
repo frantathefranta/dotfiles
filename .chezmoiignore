@@ -51,6 +51,7 @@ README.MD
   .zshrc
   {{ end }}
 {{ end }}
-{{ if ne .chezmoi.fqdnHostname "*.osc.edu" }}
+
+{{- if ne .chezmoi.fqdnHostname "*.osc.edu" }}
 .bashrc
-{{ end }}
+{{- end }}
