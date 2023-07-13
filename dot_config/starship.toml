@@ -48,6 +48,7 @@ disabled = true
 
 [username]
 format = '[$user]($style)@'
+style = 'cyan bold'
 
 [hostname]
 ssh_only = true
