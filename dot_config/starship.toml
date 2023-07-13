@@ -4,7 +4,6 @@ $git_commit\
 $git_state\
 $git_metrics\
 $git_status
-$os\
 $username\
 $hostname\
 $directory\
@@ -37,11 +36,6 @@ truncation_symbol = ".../"
 truncate_to_repo = false
 truncation_length = 8
 repo_root_style = 'underline white'
-
-[os]
-# format = "on [($name )]($style)"
-style = "bold blue"
-disabled = "false"
 
 [package]
 disabled = true
