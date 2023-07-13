@@ -46,6 +46,9 @@ detect_env_vars = ['GCLOUD_ACTIVE']
 [aws]
 disabled = true
 
+[username]
+format = '[$user]($style)@'
+
 [hostname]
 ssh_only = true
 format = '[$hostname]($style)'
