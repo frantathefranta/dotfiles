@@ -19,4 +19,5 @@ return {
 			},
 		},
 	},
+  { "pearofducks/ansible-vim" },
 }
