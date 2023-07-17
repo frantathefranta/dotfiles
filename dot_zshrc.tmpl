@@ -1,23 +1,7 @@
-# source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-antidote load
-autoload -U compinit; compinit
-#plugins=(
-#  # ansible
-#  # docker
-#  # docker-compose
-#  git
-#  python
-#  sudo
-#  # tmux
-#  copypath
-#  copyfile
-#  # aws
-#  fzf
-#  zsh-autosuggestions
-#  zsh-syntax-highlighting
-#	)
-#
+antidote load # loads antidote
+autoload -U compinit; compinit # needs to be here to load completion
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Settings that make sure history is persistent in zsh even when terminal closes
@@ -34,6 +18,7 @@ alias cz="chezmoi"
 alias wpa="workpass"
 alias em="emacsclient -nw"
 
+# key-bindings
 bindkey '^ ' autosuggest-accept
 bindkey '^j' autosuggest-execute
 bindkey '^k' autosuggest-clear
@@ -42,6 +27,7 @@ bindkey '^n' down-history
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
+# in case password store is in use
 if [ -d "$HOME/.password-store/" ]
 then
   export PASSWORD_STORE_ENABLE_EXTENSIONS=true
@@ -72,11 +58,8 @@ source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
 {{ if (and (eq .chezmoi.os "darwin") (eq .isWork "true")) }}
 alias b2="ssh-yubikey.sh b2 -t 'rm /run/user/38199/gnupg/S.gpg-agent; ~/bin/tmux a'"
 {{ end }}
-#tmux-window-name() {
-#	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
-#}
-#
-#add-zsh-hook chpwd tmux-window-name
+
+# protects against broken shell when starship is missing
 if [ -f /usr/local/bin/starship ]; then
   eval "$(starship init zsh)"
 fi
