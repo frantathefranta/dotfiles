@@ -4,6 +4,7 @@ README.MD
 .config/karabiner
 .config/emacs/**
 .config/zsh/.zsh_history
+.config/zsh/.zsh_plugins.zsh
 #.antidote/**
 
 {{ if ne .hasGUI "true" }}
