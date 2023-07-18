@@ -3,6 +3,7 @@ README.MD
 .config/nvim/.gitignore
 .config/karabiner
 .config/emacs/**
+.config/zsh/.zsh_history
 #.antidote/**
 
 {{ if ne .hasGUI "true" }}
