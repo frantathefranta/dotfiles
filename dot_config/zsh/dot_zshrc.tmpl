@@ -1,5 +1,5 @@
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-antidote load # loads antidote
+antidote load ${ZDOTDIR}/.zsh_plugins.txt # loads antidote
 autoload -U compinit; compinit # needs to be here to load completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
