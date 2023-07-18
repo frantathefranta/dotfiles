@@ -45,7 +45,7 @@ disabled = true
 [python]
 format = 'using [${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 symbol = ''
-version_format = 'v${raw}' # shows the whole version, like 3.11.3
+version_format = '${raw}' # shows the whole version, like 3.11.3
 
 [gcloud]
 detect_env_vars = ['GCLOUD_ACTIVE']
