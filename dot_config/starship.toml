@@ -42,6 +42,10 @@ repo_root_style = 'underline white'
 [package]
 disabled = true
 
+[python]
+format = 'using [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = ''
+
 [gcloud]
 detect_env_vars = ['GCLOUD_ACTIVE']
 
