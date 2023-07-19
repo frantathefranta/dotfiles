@@ -9,7 +9,7 @@ export SAVEHIST=10000                   # Maximum events in history file
 
 # FZF specifics
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 FZF_COLORS="bg+:-1,\
