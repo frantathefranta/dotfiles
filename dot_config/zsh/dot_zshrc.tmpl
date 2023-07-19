@@ -35,15 +35,6 @@ bindkey '^n' down-history
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-
-
-{{ if eq .chezmoi.hostname "franta-desktop"}}
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper_lazy.sh
-source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
-{{ end }}
-
-
 # protects against broken shell when starship is missing
 if [ -f /usr/local/bin/starship ]; then
   eval "$(starship init zsh)"
