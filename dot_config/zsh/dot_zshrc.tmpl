@@ -26,6 +26,13 @@ typeset -U PATH path
 
 source "$XDG_CONFIG_HOME/zsh/aliases"
 
+# FZF keybindings and completion
+{{ if eq .chezmoi.os "darwin" }}
+source /usr/local/opt/fzf/shell/completion.zsh && source /usr/local/opt/fzf/shell/keybindings.zsh
+{{ elif eq .chezmoi.os "linux" }}
+source /usr/share/fzf/completion.zsh && source /usr/share/fzf/keybindings.zsh
+{{ end }}
+
 # key-bindings
 bindkey '^ ' autosuggest-accept
 bindkey '^j' autosuggest-execute
