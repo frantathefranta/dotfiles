@@ -1,6 +1,10 @@
+#!/usr/bin/env zsh
+
+# Make sure antidote works
 [[ -d ${ZDOTDIR:-~}/.antidote ]] || git clone https://github.com/mattmc3/antidote ${ZDOTDIR:-~}/.antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 antidote load
+
 autoload -U compinit; compinit # needs to be here to load completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -8,6 +12,7 @@ autoload -U compinit; compinit # needs to be here to load completion
 # Settings that make sure history is persistent in zsh even when terminal closes
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
+setopt HIST_SAVE_NO_DUPS
 setopt HIST_EXPIRE_DUPS_FIRST
 setopt EXTENDED_HISTORY
 
@@ -50,9 +55,6 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
 {{ end }}
 
-{{ if (and (eq .chezmoi.os "darwin") (eq .isWork "true")) }}
-alias b2="ssh-yubikey.sh b2 -t 'rm /run/user/38199/gnupg/S.gpg-agent; ~/bin/tmux a'"
-{{ end }}
 
 # protects against broken shell when starship is missing
 if [ -f /usr/local/bin/starship ]; then
