@@ -35,17 +35,6 @@ bindkey '^n' down-history
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
-# in case password store is in use
-if [ -d "$HOME/.password-store/" ]
-then
-  export PASSWORD_STORE_ENABLE_EXTENSIONS=true
-  export PASSWORD_STORE_CHARACTER_SET='[:alnum:].,!?&*%_$#^@{}[]()|=/+-'
-fi
-
-if [ -d "$HOME/.cargo/bin" ]
-then
-	export PATH=$PATH:$HOME/.cargo/bin
-fi
 
 if [ -d "$HOME/.local/bin" ]
 then
