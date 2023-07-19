@@ -36,15 +36,6 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 
 
-if [ -d "$HOME/.local/bin" ]
-then
-	export PATH=$PATH:$HOME/.local/bin
-fi
-
-if [ -d "$HOME/.config/emacs/bin" ]
-then
-	export PATH=$PATH:$HOME/.config/emacs/bin
-fi
 
 {{ if eq .chezmoi.hostname "franta-desktop"}}
 export WORKON_HOME=~/.virtualenvs
