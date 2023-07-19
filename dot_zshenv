@@ -5,3 +5,6 @@ export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export HISTFILE="$ZDOTDIR/.zhistory"    # History filepath
 export HISTSIZE=10000                   # Maximum events for internal history
 export SAVEHIST=10000                   # Maximum events in history file
+
+# in case password store is in use
+[ -d "$HOME/.password-store/" ] && export PASSWORD_STORE_ENABLE_EXTENSIONS=true && export PASSWORD_STORE_CHARACTER_SET='[:alnum:].,!?&*%_$#^@{}[]()|=/+-'
