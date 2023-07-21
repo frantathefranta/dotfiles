@@ -41,6 +41,7 @@ bindkey '^p' up-history
 bindkey '^n' down-history
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+bindkey -v # This binds vicmd mode to ESC
 
 # protects against broken shell when starship is missing
 if [ -f /usr/local/bin/starship ]; then
