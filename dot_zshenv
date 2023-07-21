@@ -34,6 +34,9 @@ export FZF_DEFAULT_OPTS="--height 60% \
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -n 10'"
 export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
 
+# VI CMD mode
+export KEYTIMEOUT=1
+
 # in case password store is in use
 [ -d "$HOME/.password-store/" ] && export PASSWORD_STORE_ENABLE_EXTENSIONS=true && export PASSWORD_STORE_CHARACTER_SET='[:alnum:].,!?&*%_$#^@{}[]()|=/+-'
 [ -d "$HOME/.cargo/bin" ] && export PATH=$PATH:$HOME/.cargo/bin
