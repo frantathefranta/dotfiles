@@ -1,6 +1,8 @@
 ## How to init
 ```sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME```
 
+### Shell setup
+* Using zsh with [starship](https://starship.rs/) and antidote
 ### Karabiner
 * Whole directory has to be symlinked to not break (karabiner program writes to all files seemingly)
 * Handled by script in `.chezmoiscripts` and ignore in `.chezmoiignore`
