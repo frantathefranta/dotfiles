@@ -24,7 +24,7 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 # Constructs a unique $PATH
 typeset -U PATH path
 
-source "$XDG_CONFIG_HOME/zsh/aliases"
+[ -f "$XDG_CONFIG_HOME/zsh/aliases" ] && source "$XDG_CONFIG_HOME/zsh/aliases"
 
 # FZF keybindings and completion
 {{ if eq .chezmoi.os "darwin" }}
