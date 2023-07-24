@@ -44,7 +44,7 @@ bindkey '^e' end-of-line
 bindkey -v # This binds vicmd mode to ESC
 
 # protects against broken shell when starship is missing
-if [ -f /usr/local/bin/starship ]; then
+if [ command -v starship == 0 ]; then
   eval "$(starship init zsh)"
 fi
 
