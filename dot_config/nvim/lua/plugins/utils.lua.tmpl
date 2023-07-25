@@ -1,9 +1,5 @@
 return {
-{{ if hasKey .chezmoi.osRelease "id" }}
-{{ if eq .chezmoi.osRelease.id "rhel" }}
   { "chrisbra/csv.vim" },
-{{ end }}
-{{ end }}
   --	{ "wakatime/vim-wakatime", event = "VeryLazy" },
   {
     "telescope.nvim",
