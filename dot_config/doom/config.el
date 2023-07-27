@@ -49,12 +49,55 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/syncthing/org/")
-(setq org-capture-templates '(("t" "Todo [inbox]" entry
-                               (file+headline "~/syncthing/org/inbox.org" "Tasks")
-                               "* TODO %i%?")))
+(setq org-capture-templates '(
+                        ("t" "Todo [inbox]" entry
+                        (file+headline "~/syncthing/org/inbox.org" "Tasks")
+                        "* TODO %i%?")
+
+                        ("s" "Slipbox" entry  (file "~/syncthing/org/org-roam/inbox.org")
+                        "* %?\n")
+                        )
+      )
 (setq org-agenda-files '("~/syncthing/org/inbox.org"
                          "~/syncthing/org/gtd.org"
                          "~/syncthing/org/tickler.org"))
+
+(setq org-roam-directory (file-truename "~/syncthing/org/org-roam"))
+(org-roam-db-autosync-mode) ;; Syncs the org-roam database on startup, will fail if emacs-sql doesn't exists yet. To fix, run the command manually
+(setq org-roam-capture-templates
+      '(("d" "Plain Note" plain "%?"
+         :if-new
+         (file+head "${slug}.org" "#+title: ${title}\n")
+         :immediate-finish t
+         :unnarrowed t)
+        ("s" "Command" plain
+         "* %?:\n#+BEGIN_SRC sh\n\n#+END_SRC"
+         :if-new (file+head "docs/${slug}.org"
+                            "#+title: ${title}\n#+filetags: docs")
+         :immediate-finish t
+         :unnarrowed t)
+        ("w" "Work notes" plain "%?"
+         :if-new
+         (file+head "worknotes/${title}.org" "#+title: ${title}\n#+filetags: work")
+         :immediate-finish t
+         :unnarrowed t)
+        )
+      )
+
+(cl-defmethod org-roam-node-type ((node org-roam-node))
+  "Return the TYPE of NODE."
+  (condition-case nil
+      (file-name-nondirectory
+       (directory-file-name
+        (file-name-directory
+         (file-relative-name (org-roam-node-file node) org-roam-directory))))
+    (error "")))
+(setq org-roam-node-display-template
+      (concat "${type:15} ${title:*} "
+              (propertize "${tags:10}" 'face 'org-tag)
+              )
+      )
+
 ;; (add-hook! 'org-mode-hook #'mixed-pitch-mode)
 
 ;; Auto revert (refresh actually, I don't understand the language here) files when they change
