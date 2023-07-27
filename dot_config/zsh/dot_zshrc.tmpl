@@ -25,6 +25,9 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 typeset -U PATH path
 
 [ -f "$XDG_CONFIG_HOME/zsh/aliases" ] && source "$XDG_CONFIG_HOME/zsh/aliases"
+if [ uname -eq "Darwin" ]; then
+  source "$ZDOTDIR/.zsh_darwin"
+fi
 
 # FZF keybindings and completion
 {{ if eq .chezmoi.os "darwin" }}
