@@ -1,3 +1,4 @@
+# vim: set ft=toml:
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
 {{- $isWork := promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
@@ -10,3 +11,10 @@ encryption = "gpg"
     isWork = {{ $isWork | quote }}
 [git]
     autoCommit = true
+[diff]
+    command = "nvim"
+    args = ["-d", "{{`{{ .Destination }}`}}", "{{`{{ .Target }}`}}"]
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{`{{ .Destination }}`}}", "{{`{{ .Source }}", "{{ .Target }}`}}"]
