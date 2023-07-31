@@ -21,10 +21,9 @@
 ;; accept. For example:
 ;;
 (when (doom-font-exists-p "Iosevka Custom")
-    (setq doom-font                (font-spec :name "Iosevka Custom" :width 'expanded :size 17)))
-(when (doom-font-exists-p "Alegreya Sans")
-    (setq doom-variable-pitch-font (font-spec :name "Alegreya Sans"  :size 20)))
-;;
+    (setq doom-font                (font-spec :name "Iosevka Custom" :width 'expanded :size 17 :height 1.0)))
+(when (doom-font-exists-p "EtBembo")
+    (setq doom-variable-pitch-font (font-spec :name "EtBembo" :height 1.2)))
 ;; Hasklug doesn't work for Emacs for some reason, it makes the highlighted lines jump back on forth
 ;; (setq doom-font (font-spec :family "Hasklug Nerd Font" :size 16))
      ;; doom-variable-pitch-font (font-spec :family "Hasklug Nerd Font" :size 16))
