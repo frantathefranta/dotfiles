@@ -33,7 +33,7 @@ fi
 {{ if eq .chezmoi.os "darwin" }}
 source /usr/local/opt/fzf/shell/completion.zsh && source /usr/local/opt/fzf/shell/key-bindings.zsh
 {{ else if eq .chezmoi.os "linux" }}
-source /usr/share/fzf/completion.zsh && source /usr/share/fzf/keybindings.zsh
+source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
 {{ end }}
 
 # key-bindings
