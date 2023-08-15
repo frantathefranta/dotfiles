@@ -3,3 +3,6 @@ require("config.lazy")
 {{ if eq .hasGUI "true" }} 
 require("config.neovide")
 {{ end }}
+{{ if eq .chezmoi.os "darwin" }}
+require("config.work_darwin_firenvim_config")
+{{ end }}
