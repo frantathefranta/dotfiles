@@ -51,22 +51,30 @@
 (setq display-line-numbers-grow-only   t
       display-line-numbers-type        'relative
       display-line-numbers-width-start t)
-
+(setq flycheck-disabled-checkers '(proselint))
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
+;; (setq org-agenda-hide-tags-regexp ".")
 (setq org-directory "~/syncthing/org/")
-(setq org-capture-templates '(
-                        ("t" "Todo [inbox]" entry
-                        (file+headline "~/syncthing/org/inbox.org" "Tasks")
-                        "* TODO %i%?")
-
-                        ("s" "Slipbox" entry  (file "~/syncthing/org/org-roam/inbox.org")
-                        "* %?\n")
-                        )
-      )
+(setq org-capture-templates
+       `(
+         ("i" "Inbox" entry  (file "~/syncthing/org/inbox.org")
+        ,(concat "* TODO %?\n"
+                 "/Entered on/ %U"))
+         ("s" "Slipbox" entry  (file "~/syncthing/org/org-roam/inbox.org")
+        ,(concat "* %?\n"
+                 "/Entered on/ %U"))))
+;; (setq org-capture-templates
+;;                         `(("i" "Inbox" entry  (file "~/syncthing/org/inbox.org")
+;;                          ,(concat "* TODO %?\n" "/Entered on/ %U"))
+;;                         ;; ("s" "Slipbox" entry  (file "~/syncthing/org/org-roam/inbox.org")
+;;                         ;; "* %?\n")
+;;                         ;; ("t" "Todo [inbox]" entry
+;;                         ;; (file+headline "~/syncthing/org/inbox.org" "Tasks")
+;;                         ;; "* TODO %i%?")
+;;                         ))
 (setq org-agenda-files '("~/syncthing/org/inbox.org"
-                         "~/syncthing/org/gtd.org"
-                         "~/syncthing/org/tickler.org"))
+                         "~/syncthing/org/gtd.org"))
 
 (setq org-roam-directory (file-truename "~/syncthing/org/org-roam"))
 (org-roam-db-autosync-mode) ;; Syncs the org-roam database on startup, will fail if emacs-sql doesn't exists yet. To fix, run the command manually
