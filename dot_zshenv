@@ -42,4 +42,5 @@ export KEYTIMEOUT=1
 [ -d "$HOME/.cargo/bin" ] && export PATH=$PATH:$HOME/.cargo/bin
 [ -d "$HOME/.local/bin" ] && export PATH=$PATH:$HOME/.local/bin
 [ -d "$HOME/.config/emacs/bin" ] &&	export PATH=$PATH:$HOME/.config/emacs/bin
+[ -f "/usr/local/opt/ruby/bin" ] && export PATH="/usr/local/opt/ruby/bin:$PATH"
 
