@@ -43,4 +43,5 @@ export KEYTIMEOUT=1
 [ -d "$HOME/.local/bin" ] && export PATH=$PATH:$HOME/.local/bin
 [ -d "$HOME/.config/emacs/bin" ] &&	export PATH=$PATH:$HOME/.config/emacs/bin
 [ -d "/usr/local/opt/ruby/bin" ] && export PATH="/usr/local/opt/ruby/bin:$PATH"
+[ -f "/usr/local/bin/rbenv" ] && eval "$(rbenv init - zsh)"
 
