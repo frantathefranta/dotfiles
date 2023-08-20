@@ -37,7 +37,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-feather-light)
+(setq doom-theme 'humanoid-light)
 ;; (custom-theme-set-faces!
 ;; 'doom-feather-light
 ;; '(org-level-4 :inherit outline-4 :height 1.1)
@@ -55,9 +55,9 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 ;; (setq org-agenda-hide-tags-regexp ".")
-(after! org
 (setq org-directory "~/syncthing/org/")
-(setq org-agenda-files (list "inbox.org" "agenda.org" "projects.org"))
+(setq org-agenda-files (list "inbox.org" "agenda.org" "projects.org" "work.org" "~/git/organised_exchange/exchange.org"))
+(after! org
 (setq org-capture-templates
        `(
          ("i" "Inbox" entry  (file "~/syncthing/org/inbox.org")
@@ -67,10 +67,6 @@
         ,(concat "* %?\n"
                  "/Entered on/ %U"))))
 
-(setq org-refile-targets
-      '(("projects.org" :regexp . "\\(?:\\(?:Note\\|Task\\)s\\)")))
-(setq org-refile-use-outline-path 'file)
-(setq org-outline-path-complete-in-steps nil)
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d)")))
@@ -81,9 +77,17 @@
     (org-entry-put nil "ACTIVATED" (format-time-string "[%Y-%m-%d]"))))
 (add-hook 'org-after-todo-state-change-hook #'log-todo-next-creation-date)
 
+(setq org-log-done 'time)
+)
+(after! org-refile
+(setq org-refile-targets
+      '(("projects.org" :regexp . "\\(?:\\(?:Note\\|Task\\)s\\)")
+        ("work.org" :regexp . "\\(?:\\(?:Note\\|Task\\)s\\)")))
+(setq org-refile-use-outline-path 'file)
+(setq org-outline-path-complete-in-steps nil))
+(after! org-agenda
 (setq org-agenda-span 'day)
 (setq org-agenda-start-day nil)
-(setq org-log-done 'time)
 (setq org-agenda-custom-commands
       '(("g" "Get Things Done (GTD)"
          ((agenda ""
@@ -107,8 +111,11 @@
                       (org-agenda-overriding-header "\nInbox\n")))
           (tags "CLOSED>=\"<today>\""
                 ((org-agenda-overriding-header "\nCompleted today\n")))))))
+(setq org-element-use-cache nil)
 )
 (setq org-roam-directory (file-truename "~/syncthing/org/org-roam"))
+
+(after! org-roam
 (org-roam-db-autosync-mode) ;; Syncs the org-roam database on startup, will fail if emacs-sql doesn't exists yet. To fix, run the command manually
 (setq org-roam-capture-templates
       '(("d" "Plain Note" plain "%?"
@@ -143,7 +150,14 @@
               (propertize "${tags:10}" 'face 'org-tag)
               )
       )
-
+)
+(defun organised-exchange ()
+  "Sync Outlook Calendar ics with Org Agenda."
+  (interactive)
+  (if (get-buffer "~/git/organised_exchange/exchange.org")
+      (kill-buffer "~/git/organised_exchange/exchange.org"))
+  (shell-command "~/git/organised-exchange/run.sh")
+  (message "calendar imported!"))
 ;; (add-hook! 'org-mode-hook #'mixed-pitch-mode)
 
 ;; Auto revert (refresh actually, I don't understand the language here) files when they change
@@ -209,61 +223,3 @@
 (setq tramp-verbose 6)
 (setq tramp-terminal-type "tramp")
 ;; (setq tramp-shell-prompt-pattern "\\(?:^\\|\r\\)[^]#$%>\n]*#?[]#$%>].* *\\(^[\\[[0-9;]*[a-zA-Z] *\\)*")
-(defun meain/get-scratch-message ()
-  "Pull a random fortue entry and format it for `lisp-interaction' mode as a comment."
-  (concat (mapconcat 'identity
-                     (mapcar (lambda (x)
-                               (cl-concatenate 'string ";; " x))
-                             (cl-remove-if (lambda (x)
-                                             (equal x ""))
-                                           (split-string (shell-command-to-string "shuf -n1 ~/.local/share/quotes")
-                                                         "\n")))
-                     "\n")
-          "\n"))
-(setq initial-scratch-message (meain/get-scratch-message))
-(defun meain/create-or-switch-to-scratch ()
-  "Switch to scratch buffer if exists, else create a scratch buffer with our config."
-  (cond
-   ((get-buffer "*scratch*")
-    (switch-to-buffer "*scratch*"))
-   (t (progn
-        (switch-to-buffer "*scratch*")
-        (setq default-directory "~/")
-        (lisp-interaction-mode)
-        (insert (meain/get-scratch-message))))))
-(defun meain/kill-current-buffer-unless-scratch ()
-  "Kill current buffer if it is not scratch."
-  (interactive)
-  (if (= (length (mapcar #'window-buffer
-                         (window-list))) 1)
-      (meain/create-or-switch-to-scratch)
-    (cond
-     ((derived-mode-p 'prog-mode)
-      (evil-quit))
-     ((member major-mode '(imenu-list-major-mode magit-mode))
-      (evil-quit))
-     ((equal major-mode 'vterm-mode)
-      (progn
-        (evil-insert 1)
-        (vterm-reset-cursor-point)))
-     (t (previous-buffer)))))
-(define-key evil-normal-state-map (kbd "q") 'meain/kill-current-buffer-unless-scratch)
-
-(defun meain/quick-edit-end ()
-  "Util function to be executed on qed completion."
-  (interactive)
-  (mark-whole-buffer)
-  (call-interactively 'kill-ring-save)
-  (meain/kill-current-buffer-unless-scratch))
-(defun meain/quick-edit ()
-  "Util function for use with hammerspoon quick edit functionality."
-  (interactive)
-  (let ((qed-buffer-name (cl-concatenate 'string
-                                 "qed-"
-                                 (substring (uuidgen-4)
-                                        0
-                                        4))))
-    (generate-new-buffer qed-buffer-name)
-    (switch-to-buffer qed-buffer-name)
-    (evil-paste-after 1)
-    (gfm-mode)))
