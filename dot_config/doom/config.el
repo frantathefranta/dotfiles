@@ -56,7 +56,12 @@
 ;; change `org-directory'. It must be set before org loads!
 ;; (setq org-agenda-hide-tags-regexp ".")
 (setq org-directory "~/syncthing/org/")
-(setq org-agenda-files (list "inbox.org" "agenda.org" "projects.org" "work.org" "~/git/organised_exchange/exchange.org"))
+(setq org-agenda-files (list "~/syncthing/org/inbox.org"
+                             "~/syncthing/org/agenda.org"
+                             "~/syncthing/org/projects.org"
+                             "~/syncthing/org/work.org"
+                             "~/git/organised_exchange/exchange.org"))
+;; general org settings
 (after! org
 (setq org-capture-templates
        `(
@@ -70,6 +75,7 @@
 
 (setq org-todo-keywords
       '((sequence "TODO(t)" "NEXT(n)" "HOLD(h)" "|" "DONE(d)")))
+
 (defun log-todo-next-creation-date (&rest ignore)
   "Log NEXT creation time in the property drawer under the key 'ACTIVATED'"
   (when (and (string= (org-get-todo-state) "NEXT")
@@ -79,6 +85,7 @@
 
 (setq org-log-done 'time)
 )
+;; org-refile
 (after! org-refile
 (setq org-refile-targets
       '(("projects.org" :regexp . "\\(?:\\(?:Note\\|Task\\)s\\)")
@@ -113,6 +120,8 @@
                 ((org-agenda-overriding-header "\nCompleted today\n")))))))
 (setq org-element-use-cache nil)
 )
+
+;; org-roam settings
 (setq org-roam-directory (file-truename "~/syncthing/org/org-roam"))
 
 (after! org-roam
@@ -160,6 +169,21 @@
   (message "calendar imported!"))
 ;; (add-hook! 'org-mode-hook #'mixed-pitch-mode)
 
+;; Save the corresponding buffers
+(defun gtd-save-org-buffers ()
+  "Save `org-agenda-files' buffers without user confirmation.
+See also `org-save-all-org-buffers'"
+  (interactive)
+  (message "Saving org-agenda-files buffers...")
+  (save-some-buffers t (lambda ()
+			 (when (member (buffer-file-name) org-agenda-files)
+			   t)))
+  (message "Saving org-agenda-files buffers... done"))
+
+;; Add it after refile
+(advice-add 'org-refile :after
+	    (lambda (&rest _)
+	      (gtd-save-org-buffers)))
 ;; Auto revert (refresh actually, I don't understand the language here) files when they change
 ;; Copied from here https://kundeveloper.com/blog/autorevert/
 (global-auto-revert-mode t)
@@ -171,7 +195,6 @@
 ;;     (setq x y))
 ;;
 ;; The exceptions to this rule:
-;;
 ;;   - Setting file/directory variables (like `org-directory')
 ;;   - Setting variables which explicitly tell you to set them before their
 ;;     package is loaded (see 'C-h v VARIABLE' to look up their documentation).
