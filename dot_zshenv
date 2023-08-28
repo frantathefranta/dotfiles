@@ -45,4 +45,4 @@ export KEYTIMEOUT=1
 [ -d "/usr/local/opt/ruby/bin" ] && export PATH="/usr/local/opt/ruby/bin:$PATH"
 [ -f "/usr/local/bin/rbenv" ] && eval "$(rbenv init - zsh)"
 [ -d "$HOME/node_modules/.bin" ] && export PATH="$HOME/node_modules/.bin:$PATH"
-
+export PATH="/usr/local/sbin:$PATH"
