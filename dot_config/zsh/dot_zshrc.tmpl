@@ -32,11 +32,11 @@ fi
 # FZF keybindings and completion
 {{ if eq .chezmoi.os "darwin" }}
 source /usr/local/opt/fzf/shell/completion.zsh && source /usr/local/opt/fzf/shell/key-bindings.zsh
-{{ else if eq .chezmoi.os "linux" }}
-  {{ if eq .isWork "true" }}
-source "$HOME"/.fzf/shell/completion.zsh && source "$HOME"/.fzf/shell/key-bindings.zsh
-  {{ else if eq .isWork "false" }}
-source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
+  {{ else if eq .chezmoi.os "linux" }}
+    {{ if eq .isWork "true" }}
+  source "$HOME"/.fzf/shell/completion.zsh && source "$HOME"/.fzf/shell/key-bindings.zsh
+    {{ else if eq .isWork "false" }}
+  source /usr/share/fzf/completion.zsh && source /usr/share/fzf/key-bindings.zsh
   {{ end }}
 {{ end }}
 
