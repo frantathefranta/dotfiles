@@ -1,0 +1,11 @@
+#!/usr/bin/env zsh
+alias cz="chezmoi"
+alias wpa="workpass"
+alias em="emacsclient -nw"
+
+# Taskwarrior related aliases
+alias t="task"
+alias in="task add +in"
+alias tw="task -@home"
+alias th="task -@work"
+
