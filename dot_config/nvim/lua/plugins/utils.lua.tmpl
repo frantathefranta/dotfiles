@@ -1,6 +1,5 @@
 return {
   { "chrisbra/csv.vim" },
-  --	{ "wakatime/vim-wakatime", event = "VeryLazy" },
   {
     "telescope.nvim",
     dependencies = {
@@ -15,10 +14,6 @@ return {
     "Pocco81/auto-save.nvim",
     event = "VeryLazy",
   },
-  -- {
-  --   "fladson/vim-kitty",
-  --   ft = "kitty",
-  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -58,61 +53,11 @@ return {
     },
   },
   {
-    "telescope.nvim",
-    dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
-    },
-  },
-  {
-    "Pocco81/auto-save.nvim",
-    event = "VeryLazy",
-  },
-  {
     "alker0/chezmoi.vim",
+    -- Added following 4 lines per https://github.com/alker0/chezmoi.vim/issues/57#issuecomment-1425027170, otherwise plugin starts too late
     lazy = false,
     init = function()
       vim.g['chezmoi#use_tmp_buffer'] = true
     end,
-  },
-  -- {
-  --   "fladson/vim-kitty",
-  --   ft = "kitty",
-  -- },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "awk",
-        "comment",
-        "bash",
-        "dockerfile",
-        "gitcommit",
-        "gitignore",
-        "make",
-        "perl",
-        "terraform",
-        "toml",
-        "toml",
-        "json",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-      },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = { "markdown" },
-      },
-    },
   },
 }
