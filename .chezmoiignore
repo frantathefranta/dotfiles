@@ -7,9 +7,6 @@ README.MD
 .config/zsh/.zsh_plugins.zsh
 #.antidote/**
 
-{{ if ne .hasGUI "true" }}
-.config/nvim/lua/config/neovide.lua
-{{ end }}
 # Ignore these if machine isn't macOS
 .config/karabiner/automatic_backups/**
 
