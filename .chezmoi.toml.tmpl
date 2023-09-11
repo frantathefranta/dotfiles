@@ -1,5 +1,8 @@
 # vim: set ft=toml:
-{{- $email := promptStringOnce . "email" "Email address" -}}
+{{ $email := env "EMAIL" }}
+{{ if not $email }}
+  {{- $email := promptStringOnce . "email" "Email address" -}}
+{{ end }}
 {{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
 {{- $isWork := promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
 encryption = "gpg"
