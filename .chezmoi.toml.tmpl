@@ -1,28 +1,24 @@
-# vim: set ft=toml:
-
-# Email setup
 {{ $email := env "EMAIL" }}
 {{ if not $email }}
-  {{- $email := promptStringOnce . "email" "Email address" -}}
+{{ $email = promptStringOnce . "email" "Email address" }}
 {{ end }}
 
-# Checking for GUI
+{{ $hasGUI := env "GUI" }}
+{{ if not $hasGUI }}
 {{ if eq .chezmoi.os "darwin" }}
-{{    $hasGUI = true }}
+{{ $hasGUI = true }}
 {{ else }}
-  {{ $hasGUI := env "GUI" }}
-  {{ if not $hasGUI }}
-{{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
-  {{ end }}
+{{- $hasGUI = promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
+{{ end }}
 {{ end }}
 
-# Checking for personal/work machine
+{{ $isWork := "" }}
 {{ if eq .chezmoi.fqdnHostname "*.infra.franta.us" }}
-  {{ $isWork = false }}
+{{ $isWork = false }}
 {{ else if eq .chezmoi.fqdnHostname "*.osc.edu" }}
-  {{ $isWork = true }}
+{{ $isWork = true }}
 {{ else }}
-  {{- $isWork := promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
+{{- $isWork = promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
 {{ end }}
 
 encryption = "gpg"
@@ -30,7 +26,6 @@ encryption = "gpg"
     recipient = "0xB55027F11D7D24C8"
 [data]
     email = {{ $email | quote }}
-    # hasGUI = true
     hasGUI = {{ $hasGUI | quote }}
     isWork = {{ $isWork | quote }}
 [git]
