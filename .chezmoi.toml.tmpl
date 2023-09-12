@@ -13,9 +13,9 @@
 {{ end }}
 
 {{ $isWork := "" }}
-{{ if eq .chezmoi.fqdnHostname "*.infra.franta.us" }}
+{{ if hasSuffix "infra.franta.us" .chezmoi.fqdnHostname }}
 {{ $isWork = false }}
-{{ else if eq .chezmoi.fqdnHostname "*.osc.edu" }}
+{{ else if hasSuffix "osc.edu" .chezmoi.fqdnHostname  }}
 {{ $isWork = true }}
 {{ else }}
 {{- $isWork = promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
