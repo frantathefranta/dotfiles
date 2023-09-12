@@ -21,9 +21,6 @@ return {
       dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
       dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
       dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
-{{ if eq .hasGUI "true" }}
-      dashboard.button("o", " " .. " Today's Obsidian Note", ":Lazy load obsidian.nvim <CR> | :ObsidianToday <CR>"),
-{{ end }}
       dashboard.button("q", " " .. " Quit", ":qa<CR>"),
     }
     for _, button in ipairs(dashboard.section.buttons.val) do
