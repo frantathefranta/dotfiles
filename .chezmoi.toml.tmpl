@@ -1,38 +1,38 @@
 # vim: set ft=toml:
 
 # Email setup
-{{ $email := env "EMAIL" }}
-{{ if not $email }}
-  {{- $email := promptStringOnce . "email" "Email address" -}}
-{{ end }}
+# {{ $email := env "EMAIL" }}
+# {{ if not $email }}
+#   {{- $email := promptStringOnce . "email" "Email address" -}}
+# {{ end }}
 
 # Checking for GUI
-{{ if eq .chezmoi.os "darwin" }}
-{{    $hasGUI = true }}
-{{ else }}
-  {{ $hasGUI := env "GUI" }}
-  {{ if not $hasGUI }}
-{{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
-  {{ end }}
-{{ end }}
+# {{ if eq .chezmoi.os "darwin" }}
+# {{    $hasGUI = true }}
+# {{ else }}
+#   {{ $hasGUI := env "GUI" }}
+#   {{ if not $hasGUI }}
+# {{- $hasGUI := promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
+#   {{ end }}
+# {{ end }}
 
 # Checking for personal/work machine
-{{ if eq .chezmoi.fqdnHostname "*.infra.franta.us" }}
-  {{ $isWork = false }}
-{{ else if eq .chezmoi.fqdnHostname "*.osc.edu" }}
-  {{ $isWork = true }}
-{{ else }}
-  {{- $isWork := promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
-{{ end }}
+# {{ if eq .chezmoi.fqdnHostname "*.infra.franta.us" }}
+#   {{ $isWork = false }}
+# {{ else if eq .chezmoi.fqdnHostname "*.osc.edu" }}
+#   {{ $isWork = true }}
+# {{ else }}
+#   {{- $isWork := promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
+# {{ end }}
 
 encryption = "gpg"
 [gpg]
     recipient = "0xB55027F11D7D24C8"
 [data]
-    email = {{ $email | quote }}
+    # email = {{ $email | quote }}
     # hasGUI = true
-    hasGUI = {{ $hasGUI | quote }}
-    isWork = {{ $isWork | quote }}
+    # hasGUI = {{ $hasGUI }}
+    # isWork = {{ $isWork }}
 [git]
     autoCommit = true
 [diff]
