@@ -64,7 +64,7 @@ report.list.columns=id,start.age,entry.age,depends.indicator,priority,project,ta
 report.list.sort=start-,due+,project+/,urgency-
 
 urgency.user.tag.@music.coefficient=0.0
-urgency.age.coefficient=0.0
+urgency.user.project.Listening.coefficient=0.0
 #
 # report.free.filter=status:pending +freetime
 # report.free.description=Tasks only to be done in free time
