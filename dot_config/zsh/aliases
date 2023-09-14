@@ -8,5 +8,5 @@ alias t="task"
 alias in="task add +in"
 alias tw="task -@home"
 alias th="task -@work"
-alias tal="task add proj:Listening +Y2023"
+alias tal="task add proj:Listening +Y2023 +@music"
 
