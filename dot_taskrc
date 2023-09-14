@@ -63,7 +63,8 @@ report.next.labels=ID,Proj,Tags,Due,Start,Priority,Desc,Urg
 report.list.columns=id,start.age,entry.age,depends.indicator,priority,project,tags,recur.indicator,scheduled.countdown,due,until.remaining,description.count,urgency
 report.list.sort=start-,due+,project+/,urgency-
 
-urgency.user.tag.Y2023.coefficient=0.0
+urgency.user.tag.@music.coefficient=0.0
+urgency.age.coefficient=0.0
 #
 # report.free.filter=status:pending +freetime
 # report.free.description=Tasks only to be done in free time
