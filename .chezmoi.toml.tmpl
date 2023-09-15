@@ -1,25 +1,28 @@
-{{ $email := env "EMAIL" }}
-{{ if not $email }}
-{{ $email = promptStringOnce . "email" "Email address" }}
-{{ end }}
+{{- /* Email setup */ -}}
+{{- $email := env "EMAIL" -}}
+{{- if not $email -}}
+{{- $email = promptStringOnce . "email" "Email address" -}}
+{{- end -}}
 
-{{ $hasGUI := env "GUI" }}
-{{ if not $hasGUI }}
-{{ if eq .chezmoi.os "darwin" }}
-{{ $hasGUI = true }}
-{{ else }}
+{{- /* Deciding whether the host has graphical GUI */ -}}
+{{- $hasGUI := env "GUI" -}}
+{{- if not $hasGUI -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $hasGUI = true -}}
+{{- else -}}
 {{- $hasGUI = promptBoolOnce . "hasGUI" "Does this machine have a GUI [y/n]" -}}
-{{ end }}
-{{ end }}
+{{- end -}}
+{{- end -}}
 
-{{ $isWork := "" }}
-{{ if hasSuffix "infra.franta.us" .chezmoi.fqdnHostname }}
-{{ $isWork = false }}
-{{ else if hasSuffix "osc.edu" .chezmoi.fqdnHostname  }}
-{{ $isWork = true }}
-{{ else }}
+{{- /* Deciding whether the host is used at $work */ -}}
+{{- $isWork := "" -}}
+{{- if hasSuffix "infra.franta.us" .chezmoi.fqdnHostname -}}
+{{- $isWork = false -}}
+{{- else if hasSuffix "osc.edu" .chezmoi.fqdnHostname  -}}
+{{- $isWork = true -}}
+{{- else -}}
 {{- $isWork = promptBoolOnce . "isWork" "Is this machine used for work [y/n]"  -}}
-{{ end }}
+{{- end -}}
 
 encryption = "gpg"
 [gpg]
