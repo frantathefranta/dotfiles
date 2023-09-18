@@ -65,12 +65,13 @@ report.list.sort=start-,due+,project+/,urgency-
 
 urgency.user.tag.@music.coefficient=0.0
 urgency.user.project.Listening.coefficient=0.0
+urgency.user.tag.freetime.coefficient=0.0
 #
-# report.free.filter=status:pending +freetime
-# report.free.description=Tasks only to be done in free time
-# report.free.columns=id,project,tags,start.age,entry.age,depends,priority,description
-# report.free.labels=ID,Proj,Tags,Start,Entry,Deps,Priority,Desc
-# report.free.sort=project+,status-,start-,priority-,due+
+report.free.filter=status:pending +freetime
+report.free.description=Tasks only to be done in free time
+report.free.columns=id,project,tags,start.age,entry.age,depends,priority,description
+report.free.labels=ID,Proj,Tags,Start,Entry,Deps,Priority,Desc
+report.free.sort=project+,status-,start-,priority-,due+
 # report.home.filter=status:pending +@home
 # report.home.description=Tasks that can only be done at home
 # report.home.columns=id,project,tags,start.age,entry.age,depends,priority,description
