@@ -4,7 +4,6 @@ return {
 		---@class PluginLspOpts
 		opts = {
 			---@type lspconfig.options
-			autoformat = false,
 			servers = {
 				marksman = {},
 				lua_ls = {},
