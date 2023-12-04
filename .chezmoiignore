@@ -43,6 +43,7 @@ README.MD
   {{ end }}
   {{ if eq .chezmoi.osRelease.id "rhel" }}
   .config/nvim/lua/plugin/lspconfig.lua
+  .config/nvim/lua/plugin/ui.lua
   .zshrc
   {{ end }}
 {{ end }}
