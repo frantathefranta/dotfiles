@@ -42,6 +42,10 @@ if command -v timew &> /dev/null
 then
   export TIMEWARRIORDB="$HOME/syncthing/files/.timewarrior"
 fi
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # in case password store is in use
 [ -d "$HOME/.password-store/" ] && export PASSWORD_STORE_ENABLE_EXTENSIONS=true && export PASSWORD_STORE_CHARACTER_SET='[:alnum:].,!?&*%_$#^@{}[]()|=/+-'
 [ -d "$HOME/usr/bin" ] && export PATH=$PATH:$HOME/usr/bin
