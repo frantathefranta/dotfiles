@@ -5,6 +5,7 @@ return {
 		opts = {
 			---@type lspconfig.options
 			servers = {
+{{- if ne .uid "1144" }}
 				marksman = {},
 				lua_ls = {},
 				pyright = {},
@@ -14,6 +15,7 @@ return {
 				rust_analyzer = {},
 				docker_compose_language_service = {},
 				awk_ls = {},
+{{- end -}}
 				bashls = {},
 			},
 		},
