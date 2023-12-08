@@ -5,7 +5,7 @@ return {
 		opts = {
 			---@type lspconfig.options
 			servers = {
-{{- if ne .gid "1144" -}}
+{{- if ne .chezmoi.uid "1144" -}}
 				marksman = {},
 				lua_ls = {},
 				pyright = {},
