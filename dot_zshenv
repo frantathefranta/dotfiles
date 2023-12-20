@@ -39,9 +39,7 @@ export KEYTIMEOUT=1
 
 # Timewarrior config
 if command -v timew &> /dev/null; then
-  export TIMEWARRIORDB="$HOME/syncthing/files/.timewarrior"
-else
-  echo "Timewarrior is not installed"
+  export TIMEWARRIORDB="$HOME/taskwarrior/.timewarrior"
 fi
 
 export NVM_DIR="$HOME/.config/nvm"
