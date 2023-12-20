@@ -38,9 +38,10 @@ export FZF_COMPLETION_DIR_COMMANDS="cd pushd rmdir tree ls"
 export KEYTIMEOUT=1
 
 # Timewarrior config
-if command -v timew &> /dev/null
-then
+if command -v timew &> /dev/null; then
   export TIMEWARRIORDB="$HOME/syncthing/files/.timewarrior"
+else
+  echo "Timewarrior is not installed"
 fi
 
 export NVM_DIR="$HOME/.config/nvm"
