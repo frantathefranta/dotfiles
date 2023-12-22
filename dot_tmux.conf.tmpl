@@ -20,7 +20,7 @@ set -g set-titles-string "#I:#W"
 setw -g mode-keys vi
 # Set UTF8 compatibility
 setw -q -g utf8 on
-{{- if and (eq isWork "true") (eq hasGUI "false") -}}
+{{- if and (eq .isWork "true") (eq .hasGUI "false") -}}
 set -g default-terminal "screen-256color"
 {{- elif -}}
 set-option -sa terminal-features ',alacritty:RGB'
