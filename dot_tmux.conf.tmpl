@@ -22,7 +22,7 @@ setw -g mode-keys vi
 setw -q -g utf8 on
 {{- if and (eq .isWork "true") (eq .hasGUI "false") -}}
 set -g default-terminal "screen-256color"
-{{- elif -}}
+{{- else if -}}
 set-option -sa terminal-features ',alacritty:RGB'
 {{- end -}}
 
