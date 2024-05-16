@@ -31,6 +31,16 @@ return {
       builtin_matchers = {
         kubernetes = { enabled = true },
       },
+    schemas = {
+        {
+          name = "Kustomization",
+          uri = "https://json.schemastore.org/kustomization.json"
+        },
+        {
+          name = "GitHub Workflow",
+          uri = "https://json.schemastore.org/github-workflow.json"
+        },
+      },
     lspconfig = {
     settings = {
       yaml = {
