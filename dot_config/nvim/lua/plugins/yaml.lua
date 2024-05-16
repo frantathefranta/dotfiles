@@ -98,6 +98,10 @@ return {
 					uri = "https://json.schemastore.org/kustomization.json",
 				},
 				{
+					name = "Fluxtomization",
+					uri = "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json",
+				},
+				{
 					name = "GitHub Workflow",
 					uri = "https://json.schemastore.org/github-workflow.json",
 				},
