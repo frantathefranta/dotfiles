@@ -10,10 +10,10 @@ return {
       end,
     },
   },
-  {
-    "Pocco81/auto-save.nvim",
-    event = "VeryLazy",
-  },
+  -- {
+  --   "Pocco81/auto-save.nvim",
+  --   event = "VeryLazy",
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -28,18 +28,12 @@ return {
         "diff",
         "make",
         "toml",
-        "json",
         "regex",
         "vim",
         "vimdoc",
-        "yaml",
-        "python",
-        "markdown",
         "markdown_inline",
 {{ if eq .isWork "false" }}
-        "dockerfile",
         "perl",
-        "terraform",
         "lua",
 {{ end }}
 {{ if eq .isWork "true" }}
