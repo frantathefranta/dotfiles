@@ -19,7 +19,6 @@ return {
 			},
 		},
 	},
-  -- { "pearofducks/ansible-vim" },
   { 
     "someone-stole-my-name/yaml-companion.nvim",
     requires = {
@@ -27,7 +26,9 @@ return {
       { "nvim-lua/plenary.nvim" },
       { "nvim-telescope/telescope.nvim" },
   },
-  config = function()
+  config = function(_, opts)
+    local cfg = require("yaml-companion").setup(opts)
+    require("lspconfig")["yamlls"].setup(cfg)
     require("telescope").load_extension("yaml_schema")
   end,
  },
