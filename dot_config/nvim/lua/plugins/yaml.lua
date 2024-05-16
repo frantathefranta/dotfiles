@@ -88,10 +88,10 @@ return {
 					name = "Kustomization",
 					uri = "https://json.schemastore.org/kustomization.json",
 				},
-				-- {
-				--   name = "GitHub Workflow",
-				--   uri = "https://json.schemastore.org/github-workflow.json",
-				-- },
+				{
+					name = "GitHub Workflow",
+					uri = "https://json.schemastore.org/github-workflow.json",
+				},
 				{
 					name = "Kubernetes 1.30.1",
 					uri = "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.30.1-standalone-strict/all.json",
