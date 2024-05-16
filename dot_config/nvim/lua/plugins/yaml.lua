@@ -62,7 +62,7 @@ return {
 								["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
 								["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
 								["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
-								["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+								["https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json"] = "{ks,kustomization}.{yml,yaml}",
 								["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
 								["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
 								["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
@@ -94,7 +94,7 @@ return {
 			schemas = {
 				{
 					name = "Kustomization",
-					uri = "https://json.schemastore.org/kustomization.json",
+					uri = "https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json",
 				},
 				{
 					name = "GitHub Workflow",
