@@ -31,6 +31,7 @@ return {
       builtin_matchers = {
         kubernetes = { enabled = true },
       },
+    -- You need to declare schemas here and in lspconfig.settings.yaml.schemas to get them to show up in lualine
     schemas = {
         {
           name = "Kustomization",
