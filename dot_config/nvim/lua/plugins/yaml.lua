@@ -63,7 +63,7 @@ return {
 								["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
 								["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
 								["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
-								["https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json"] = "ks.{yml,yaml}",
+								["https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json"] = "ks.{yml,yaml}",
 								["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
 								["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
 								["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
@@ -99,7 +99,7 @@ return {
 				},
 				{
 					name = "Fluxtomization",
-					uri = "https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json",
+					uri = "https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json",
 				},
 				{
 					name = "GitHub Workflow",
