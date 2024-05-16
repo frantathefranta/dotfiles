@@ -10,14 +10,14 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    { import = "coding.native_snippets" },
-    { import = "lang.ansible" },
-    { import = "lang.docker" },
-    { import = "lang.go" },
-    { import = "lang.json" },
-    { import = "lang.markdown" },
-    { import = "lang.terraform" },
-    { import = "lang.yaml" },
+    { import = "lazyvim.plugin.extras.coding.native_snippets" },
+    { import = "lazyvim.plugin.extras.lang.ansible" },
+    { import = "lazyvim.plugin.extras.lang.docker" },
+    { import = "lazyvim.plugin.extras.lang.go" },
+    { import = "lazyvim.plugin.extras.lang.json" },
+    { import = "lazyvim.plugin.extras.lang.markdown" },
+    { import = "lazyvim.plugin.extras.lang.terraform" },
+    { import = "lazyvim.plugin.extras.lang.yaml" },
     -- import any extras modules here
     -- { import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.lang.json" },
