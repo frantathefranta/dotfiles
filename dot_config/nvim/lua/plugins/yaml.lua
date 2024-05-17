@@ -64,6 +64,7 @@ return {
 								["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
 								["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
 								["https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json"] = "ks.{yml,yaml}",
+								["https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json"] = "helmrelease.yaml",
 								["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
 								["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
 								["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
@@ -100,6 +101,10 @@ return {
 				{
 					name = "Fluxtomization",
 					uri = "https://kubernetes-schemas.pages.dev/kustomize.toolkit.fluxcd.io/kustomization_v1.json",
+				},
+				{
+					name = "bjw HelmRelease",
+					uri = "https://raw.githubusercontent.com/bjw-s/helm-charts/main/charts/other/app-template/schemas/helmrelease-helm-v2.schema.json",
 				},
 				{
 					name = "GitHub Workflow",
