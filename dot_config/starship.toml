@@ -5,6 +5,7 @@ $git_state\
 $git_metrics\
 $git_status\
 $direnv\
+$kubernetes\
 $python
 $username\
 $hostname\
@@ -48,6 +49,9 @@ style = "bright-yellow"
 
 [package]
 disabled = true
+
+[kubernetes]
+disabled = false
 
 [python]
 format = 'using [${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
