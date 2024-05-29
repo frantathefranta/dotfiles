@@ -43,7 +43,7 @@ truncation_length = 8
 repo_root_style = 'underline white'
 
 [direnv]
-disabled = false
+disabled = true
 style = "bright-yellow"
 
 [package]
