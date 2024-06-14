@@ -55,6 +55,12 @@ bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
 bindkey -v # This binds vicmd mode to ESC
 
+tmux-window-name() {
+	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+}
+
+add-zsh-hook chpwd tmux-window-name
+
 # protects against broken shell when starship is missing
 command -v starship 2>&1 > /dev/null
 if [ $? = 0 ]; then
