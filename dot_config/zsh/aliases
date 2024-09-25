@@ -11,3 +11,7 @@ alias th="task -@work"
 alias tam="task add proj:Listening +Y2023 +@music"
 alias tal="task add proj:Learning +@learning +c"
 
+# kubectl
+alias k="kubecolor"
+alias kg="kubecolor get"
+alias kd="kubecolor describe"
