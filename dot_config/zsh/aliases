@@ -15,3 +15,6 @@ alias tal="task add proj:Learning +@learning +c"
 alias k="kubecolor"
 alias kg="kubecolor get"
 alias kd="kubecolor describe"
+
+# beets
+alias beet="beet -c $HOME/beets/config.yaml"
